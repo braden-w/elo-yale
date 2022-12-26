@@ -1,8 +1,38 @@
-# Elo Yale (elo-yale)
+# create-svelte
 
-The definitive ranking of Residential Colleges at Yale. It's facesmash for Hopper
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-It took about 6 minutes for me to do all 91 matchings manually. It was crazy how consistent it was:
-```py
-[('Benjamin Franklin College', 'Silliman College'), ('Branford College', 'Trumbull College'), ('Davenport College', 'Timothy Dwight College'), ('Ezra Stiles College', 'Silliman College'), ('Branford College', 'Jonathan Edwards College'), ('Grace Hopper College', 'Silliman College'), ('Benjamin Franklin College', 'Morse College'), ('Pierson College', 'Trumbull College'), ('Saybrook College', 'Pierson College'), ('Ezra Stiles College', 'Pierson College'), ('Benjamin Franklin College', 'Pauli Murray College'), ('Benjamin Franklin College', 'Saybrook College'), ('Berkeley College', 'Silliman College'), ('Morse College', 'Saybrook College'), ('Jonathan Edwards College', 'Timothy Dwight College'), ('Pierson College', 'Jonathan Edwards College'), ('Silliman College', 'Davenport College'), ('Jonathan Edwards College', 'Davenport College'), ('Morse College', 'Silliman College'), ('Berkeley College', 'Davenport College'), ('Silliman College', 'Timothy Dwight College'), ('Saybrook College', 'Timothy Dwight College'), ('Pauli Murray College', 'Davenport College'), ('Pauli Murray College', 'Silliman College'), ('Morse College', 'Pierson College'), ('Benjamin Franklin College', 'Ezra Stiles College'), ('Pauli Murray College', 'Trumbull College'), ('Grace Hopper College', 'Berkeley College'), ('Ezra Stiles College', 'Grace Hopper College'), ('Grace Hopper College', 'Branford College'), ('Ezra Stiles College', 'Timothy Dwight College'), ('Grace Hopper College', 'Saybrook College'), ('Silliman College', 'Pierson College'), ('Pauli Murray College', 'Jonathan Edwards College'), ('Berkeley College', 'Jonathan Edwards College'), ('Pauli Murray College', 'Saybrook College'), ('Ezra Stiles College', 'Davenport College'), ('Pauli Murray College', 'Timothy Dwight College'), ('Benjamin Franklin College', 'Timothy Dwight College'), ('Morse College', 'Branford College'), ('Berkeley College', 'Timothy Dwight College'), ('Morse College', 'Trumbull College'), ('Morse College', 'Berkeley College'), ('Berkeley College', 'Branford College'), ('Saybrook College', 'Jonathan Edwards College'), ('Ezra Stiles College', 'Berkeley College'), ('Grace Hopper College', 'Jonathan Edwards College'), ('Benjamin Franklin College', 'Pierson College'), ('Benjamin Franklin College', 'Berkeley College'), ('Pauli Murray College', 'Branford College'), ('Morse College', 'Timothy Dwight College'), ('Ezra Stiles College', 'Jonathan Edwards College'), ('Saybrook College', 'Branford College'), ('Berkeley College', 'Saybrook College'), ('Trumbull College', 'Timothy Dwight College'), ('Saybrook College', 'Davenport College'), ('Ezra Stiles College', 'Saybrook College'), ('Pierson College', 'Branford College'), ('Jonathan Edwards College', 'Trumbull College'), ('Saybrook College', 'Trumbull College'), ('Grace Hopper College', 'Trumbull College'), ('Branford College', 'Timothy Dwight College'), ('Silliman College', 'Jonathan Edwards College'), ('Pierson College', 'Davenport College'), ('Benjamin Franklin College', 'Branford College'), ('Pauli Murray College', 'Pierson College'), ('Pauli Murray College', 'Grace Hopper College'), ('Ezra Stiles College', 'Trumbull College'), ('Silliman College', 'Trumbull College'), ('Grace Hopper College', 'Pierson College'), ('Morse College', 'Grace Hopper College'), ('Benjamin Franklin College', 'Grace Hopper College'), ('Pauli Murray College', 'Ezra Stiles College'), ('Morse College', 'Ezra Stiles College'), ('Silliman College', 'Branford College'), ('Trumbull College', 'Davenport College'), ('Branford College', 'Davenport College'), ('Pauli Murray College', 'Morse College'), ('Silliman College', 'Saybrook College'), ('Benjamin Franklin College', 'Trumbull College'), ('Grace Hopper College', 'Timothy Dwight College'), ('Ezra Stiles College', 'Branford College'), ('Morse College', 'Davenport College'), ('Morse College', 'Jonathan Edwards College'), ('Berkeley College', 'Pierson College'), ('Pierson College', 'Timothy Dwight College'), ('Grace Hopper College', 'Davenport College'), ('Benjamin Franklin College', 'Jonathan Edwards College'), ('Berkeley College', 'Trumbull College'), ('Benjamin Franklin College', 'Davenport College'), ('Pauli Murray College', 'Berkeley College')]
+## Creating a project
+
+If you're seeing this, you've probably already done this step. Congrats!
+
+```bash
+# create a new project in the current directory
+npm create svelte@latest
+
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
