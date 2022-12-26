@@ -1,12 +1,12 @@
 <script lang="ts">
-    import "../app.postcss";
-    // import type { LayoutData } from './$types';
+	import '../app.postcss';
+	import type { LayoutData } from './$types';
 
-    // export let data: LayoutData;
+	export let data: LayoutData;
 </script>
 
-<div class="flex bg-slate-800">
-<h1 class="text-2xl font-serif text-slate-100">Elo Yale</h1>
+<div class="flex bg-slate-800 align-center justify-center">
+	<h1 class="text-2xl font-serif text-slate-100">Elo Yale</h1>
 </div>
 
-<slot></slot>
+<slot />
