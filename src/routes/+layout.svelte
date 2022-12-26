@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex bg-slate-800 align-center justify-center">
-	<h1 class="text-2xl font-serif text-slate-100">Elo Yale</h1>
+	<h1 class="text-2xl text-slate-100">Elo Yale</h1>
 </div>
 
 <slot />
