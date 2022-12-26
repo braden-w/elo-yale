@@ -3,10 +3,14 @@ const config = {
 
 	theme: {
 		fontFamily: {
-			sans: ['Habibi', 'sans-serif'],
-			serif: ['Habibi', 'serif']
+			sans: ['habibi', 'sans-serif'],
+			serif: ['habibi', 'serif']
 		},
-		extend: {}
+		extend: {
+			fontFamily: {
+				habibi: ['Habibi']
+			}
+		}
 	},
 
 	plugins: []
