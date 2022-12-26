@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ProgressBar from './ProgressBar.svelte';
+
 	import Divider from './Divider.svelte';
 
 	import type { PageData } from './$types';
@@ -19,3 +21,5 @@
 		class="rounded-2xl"
 	/>
 </div>
+
+<ProgressBar progress={50} />
