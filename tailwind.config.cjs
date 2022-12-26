@@ -1,11 +1,15 @@
 const config = {
-  content: ["./src/**/*.{html,js,svelte,ts}"],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 
-  theme: {
-    extend: {}
-  },
+	theme: {
+		fontFamily: {
+			sans: ['Habibi', 'sans-serif'],
+			serif: ['Habibi', 'serif']
+		},
+		extend: {}
+	},
 
-  plugins: []
+	plugins: []
 };
 
 module.exports = config;
