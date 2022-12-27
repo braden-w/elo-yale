@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 	import HorizontalDivider from './HorizontalDivider.svelte';
 	import VerticalDivider from './VerticalDivider.svelte';
-	import { colleges } from 'src/lib/colleges';
+	import { colleges } from '$lib/colleges';
 
 	export let data: PageData;
 </script>
