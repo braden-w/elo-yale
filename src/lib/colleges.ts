@@ -34,3 +34,8 @@ export const colleges = [
 	'Timothy Dwight',
 	'Trumbull'
 ] as const;
+
+// Generate all unique pairs of colleges
+export const collegePairs = colleges.flatMap((college, i) => {
+	return colleges.slice(i + 1).map((otherCollege) => [college, otherCollege]);
+});
