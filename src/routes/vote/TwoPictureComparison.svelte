@@ -41,7 +41,7 @@
 	<HorizontalDivider class="sm:hidden" />
 	<VerticalDivider class="hidden sm:flex" />
 	<div class="h-full w-full">
-		<button class="relative overflow-hidden rounded-2xl" on:click={() => submitVote}>
+		<div class="relative overflow-hidden rounded-2xl">
 			<img
 				src={collegeToImage[collegeTwo]}
 				alt="Picture of {collegeTwo}"
@@ -55,7 +55,7 @@
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeTwo}</p>
 			</button>
-		</button>
+		</div>
 	</div>
 </div>
 
