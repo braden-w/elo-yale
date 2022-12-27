@@ -2,7 +2,7 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import HorizontalDivider from './HorizontalDivider.svelte';
 	import VerticalDivider from './VerticalDivider.svelte';
-	import { colleges, type College } from '$lib/colleges';
+	import { collegeToImage, type College } from '$lib/colleges';
 	export let collegeOne: College = 'Benjamin Franklin';
 	export let collegeTwo: College = 'Pauli Murray';
 	let animate = true;
@@ -12,7 +12,7 @@
 	<div class="h-full w-full">
 		<button class="relative overflow-hidden rounded-2xl">
 			<img
-				src={colleges[collegeOne]}
+				src={collegeToImage[collegeOne]}
 				alt="Picture of {collegeOne}"
 				class="rounded-2xl object-cover"
 			/>
@@ -30,7 +30,7 @@
 	<div class="h-full w-full">
 		<button class="relative overflow-hidden rounded-2xl">
 			<img
-				src={colleges[collegeTwo]}
+				src={collegeToImage[collegeTwo]}
 				alt="Picture of {collegeTwo}"
 				class="rounded-2xl object-cover"
 			/>

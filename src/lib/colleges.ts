@@ -1,4 +1,4 @@
-export const colleges = {
+export const collegeToImage = {
 	'Benjamin Franklin': 'https://i.imgur.com/5LGFYXT.png',
 	Berkeley: 'https://i.imgur.com/lIwkjK4.png',
 	Branford: 'https://i.imgur.com/Q7JeCCL.png',
@@ -16,4 +16,4 @@ export const colleges = {
 	// "https://i.imgur.com/jzDlVug.png"
 };
 
-export type College = keyof typeof colleges;
+export type College = keyof typeof collegeToImage;
