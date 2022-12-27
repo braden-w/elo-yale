@@ -1,7 +1,9 @@
 <script lang="ts">
-	import '../app.postcss';
-	import { supabase } from '$lib/supabaseClient';
 	import { invalidate } from '$app/navigation';
+	import { supabase } from '$lib/supabaseClient';
+	import { onMount } from 'svelte';
+	import '../app.postcss';
+	import type { LayoutData } from './$types';
 
 	onMount(() => {
 		const {
@@ -14,8 +16,6 @@
 			subscription.unsubscribe();
 		};
 	});
-
-	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
 </script>
