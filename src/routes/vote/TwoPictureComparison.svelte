@@ -32,6 +32,7 @@
 			{ position: 'top-right' }
 		);
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ res', res);
+		pairNumber = (pairNumber + 1) % (collegePairs.length - 1);
 	}
 </script>
 
