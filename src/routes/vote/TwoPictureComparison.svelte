@@ -8,23 +8,26 @@
 	import { collegePairs, collegeToImage, type College } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
+	import { supabase } from '$lib/supabaseClient';
 	let pairNumber = 90;
 	$: [collegeOne, collegeTwo] = collegePairs[pairNumber];
 	let animate = true;
 
 	async function submitVote(winner: College, loser: College) {
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ const');
-		const res = trpc().insert.mutate({
+		const user_id = $page.data.session?.user.id;
+		const res = trpc().upsert.mutate({
+			id: `${user_id}-${collegeOne}-${collegeTwo}`,
 			winner,
 			loser,
-			user_id: $page.data.session?.user.id ?? null
+			user_id
 		});
 		toast.promise(
 			res,
 			{
 				loading: 'Submitting vote...',
 				success: 'Vote submitted!',
-				error: 'Failed to submit vote'
+				error: 'Failed to submit vote. Did you log in?'
 			},
 			{ position: 'top-right' }
 		);
