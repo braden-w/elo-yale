@@ -33,14 +33,14 @@
 			id: `${user_id}-${collegeOne}-${collegeTwo}`,
 			winner,
 			loser,
-			user_id
+			user_id: user_id ?? null
 		});
 		toast.promise(
 			res,
 			{
 				loading: 'Submitting vote...',
 				success: 'Vote submitted!',
-				error: 'Failed to submit vote. Did you log in?'
+				error: 'Failed to submit vote'
 			},
 			{ position: 'top-right' }
 		);
