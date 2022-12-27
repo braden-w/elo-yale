@@ -15,3 +15,5 @@ export const colleges = {
 	Trumbull: 'https://i.imgur.com/ykuMs9b.png'
 	// "https://i.imgur.com/jzDlVug.png"
 };
+
+export type College = keyof typeof colleges;
