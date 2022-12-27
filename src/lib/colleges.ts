@@ -17,3 +17,20 @@ export const collegeToImage = {
 };
 
 export type College = keyof typeof collegeToImage;
+
+export const colleges = [
+	'Benjamin Franklin',
+	'Berkeley',
+	'Branford',
+	'Davenport',
+	'Ezra Stiles',
+	'Grace Hopper',
+	'Jonathan Edwards',
+	'Morse',
+	'Pauli Murray',
+	'Pierson',
+	'Saybrook',
+	'Silliman',
+	'Timothy Dwight',
+	'Trumbull'
+] as const;
