@@ -10,7 +10,7 @@ const row = z.object({
 	id: z.string(),
 	winner: z.enum(colleges),
 	loser: z.enum(colleges),
-	user_id: z.string()
+	user_id: z.string().nullable()
 });
 
 export const router = t.router({
