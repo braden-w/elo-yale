@@ -14,9 +14,9 @@
 </script>
 
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
-	<img src={collegeToImage['Pauli Murray']} alt="Elo Yale Splash Page" class="h-full" />
-	<h1 class="text-xl text-slate-600">
-		Which Residential College is <span class="text-slate-800">Actually</span> the Best?
+	<img src={collegeToImage['Pauli Murray']} alt="Elo Yale Splash Page" class="h-full rounded-2xl" />
+	<h1 class="text-xl tracking-wider text-slate-600">
+		Which Residential College is <span class="tracking-widest text-slate-800">Actually</span> the Best?
 	</h1>
 	<button
 		on:click={signInWithGoogle}
