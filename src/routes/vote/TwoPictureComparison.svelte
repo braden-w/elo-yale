@@ -16,6 +16,16 @@
 	$: progress = (pairNumber / pairNumberCeiling) * 100;
 	let animate = true;
 
+	// When the number 1 is pressed, the first college is the winner
+	// When the number 2 is pressed, the second college is the winner
+	function onKeyDown(e: KeyboardEvent) {
+		if (e.key === '1') {
+			submitVote(collegeOne, collegeTwo);
+		} else if (e.key === '2') {
+			submitVote(collegeTwo, collegeOne);
+		}
+	}
+
 	async function submitVote(winner: College, loser: College) {
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ const');
 		const user_id = $page.data.session?.user.id;
@@ -39,6 +49,7 @@
 	}
 </script>
 
+<svelte:window on:keydown={onKeyDown} />
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
 	<div class="h-full w-full">
 		<div class="relative overflow-hidden rounded-2xl">
