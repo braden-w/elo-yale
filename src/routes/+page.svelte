@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { collegeToImage } from '$lib/colleges';
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import { supabase } from '$lib/supabaseClient';
 
@@ -13,12 +14,15 @@
 </script>
 
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
-	<h1 class="text-xl text-slate-700">Which Residential College is Best?</h1>
+	<img src={collegeToImage['Pauli Murray']} alt="Elo Yale Splash Page" class="h-full" />
+	<h1 class="text-xl text-slate-600">
+		Which Residential College is <span class="text-slate-800">Actually</span> the Best?
+	</h1>
 	<button
 		on:click={signInWithGoogle}
 		class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
 	>
 		<GoogleIcon />
-		<span>Sign in with Google</span>
+		<span>Sign in with yale.edu to find out</span>
 	</button>
 </div>
