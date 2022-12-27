@@ -5,11 +5,11 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import HorizontalDivider from './HorizontalDivider.svelte';
 	import VerticalDivider from './VerticalDivider.svelte';
-	import { collegeToImage, type College } from '$lib/colleges';
+	import { collegePairs, collegeToImage, type College } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
-	export let collegeOne: College = 'Benjamin Franklin';
-	export let collegeTwo: College = 'Pauli Murray';
+	let pairNumber = 90;
+	$: [collegeOne, collegeTwo] = collegePairs[pairNumber];
 	let animate = true;
 
 	async function submitVote(winner: College, loser: College) {
