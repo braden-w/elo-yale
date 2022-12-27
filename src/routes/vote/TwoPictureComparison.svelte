@@ -9,7 +9,7 @@
 
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
 	<div class="h-full w-full">
-		<div class="relative overflow-hidden rounded-lg">
+		<div class="relative overflow-hidden rounded-2xl">
 			<img
 				src={colleges[collegeOne]}
 				alt="Picture of {collegeOne}"
@@ -25,7 +25,7 @@
 	<HorizontalDivider class="sm:hidden" />
 	<VerticalDivider class="hidden sm:flex" />
 	<div class="h-full w-full">
-		<div class="relative overflow-hidden rounded-lg">
+		<div class="relative overflow-hidden rounded-2xl">
 			<img
 				src={colleges[collegeTwo]}
 				alt="Picture of {collegeTwo}"
