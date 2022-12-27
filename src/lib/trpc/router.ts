@@ -20,7 +20,14 @@ export const router = t.router({
 			throw new Error(error.message);
 		}
 		return data;
-	})
+	}),
+	get: t.procedure.input(z.string()).query(async (req) => {
+		const { data, error } = await supabase.from('votes').select().eq('user_id', req.input);
+		if (error) {
+			throw new Error(error.message);
+		}
+		return data;
+	}
 });
 
 export type Router = typeof router;

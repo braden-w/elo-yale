@@ -13,8 +13,12 @@
 	};
 </script>
 
-<div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
-	<img src={collegeToImage['Pauli Murray']} alt="Elo Yale Splash Page" class="h-full rounded-2xl" />
+<div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-2xl">
+	<img
+		src={collegeToImage['Pauli Murray']}
+		alt="Elo Yale Splash Page"
+		class="h-full rounded-2xl object-cover"
+	/>
 	<h1 class="text-xl tracking-wider text-slate-600">
 		Which Residential College is <span class="tracking-widest text-slate-800">Actually</span> the Best?
 	</h1>
