@@ -25,7 +25,7 @@
 <div class="flex h-full w-full flex-col items-center justify-center bg-slate-100">
 	<Toaster />
 	<div class="align-center flex w-full justify-center bg-slate-800">
-		<a href="/"><h1 class="text-2xl text-slate-100">Elo Yale</h1></a>
+		<a href="/"><h1 class="text-2xl tracking-widest text-slate-100">Elo Yale</h1></a>
 	</div>
 	<slot />
 </div>
