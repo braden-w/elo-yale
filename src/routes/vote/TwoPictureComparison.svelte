@@ -13,13 +13,21 @@
 	let animate = true;
 
 	async function submitVote(winner: College, loser: College) {
-		toast.success('It works!');
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ const');
-		const res = await trpc().insert.mutate({
+		const res = trpc().insert.mutate({
 			winner,
 			loser,
 			user_id: $page.data.session?.user.id ?? null
 		});
+		toast.promise(
+			res,
+			{
+				loading: 'Submitting vote...',
+				success: 'Vote submitted!',
+				error: 'Failed to submit vote'
+			},
+			{ position: 'top-right' }
+		);
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ res', res);
 	}
 </script>
