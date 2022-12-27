@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import toast from 'svelte-french-toast';
+
 	import ProgressBar from './ProgressBar.svelte';
 	import HorizontalDivider from './HorizontalDivider.svelte';
 	import VerticalDivider from './VerticalDivider.svelte';
@@ -10,6 +13,7 @@
 	let animate = true;
 
 	async function submitVote(winner: College, loser: College) {
+		toast.success('It works!');
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ const');
 		const res = await trpc().insert.mutate({
 			winner,
