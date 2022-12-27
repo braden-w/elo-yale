@@ -9,7 +9,7 @@ export const t = initTRPC.context<Context>().create();
 const row = z.object({
 	winner: z.enum(colleges),
 	loser: z.enum(colleges),
-	user_id: z.string()
+	user_id: z.string().nullable()
 });
 
 export const router = t.router({
