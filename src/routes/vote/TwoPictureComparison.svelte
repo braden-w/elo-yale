@@ -8,9 +8,12 @@
 	import { collegePairs, collegeToImage, type College } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
-	import { supabase } from '$lib/supabaseClient';
+
+	// Number from 0 to 90 (collegePairs.length - 1)
 	let pairNumber = 90;
+	const pairNumberCeiling = collegePairs.length;
 	$: [collegeOne, collegeTwo] = collegePairs[pairNumber];
+	$: progress = (pairNumber / pairNumberCeiling) * 100;
 	let animate = true;
 
 	async function submitVote(winner: College, loser: College) {
@@ -32,7 +35,7 @@
 			{ position: 'top-right' }
 		);
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ res', res);
-		pairNumber = (pairNumber + 1) % (collegePairs.length - 1);
+		pairNumber = (pairNumber + 1) % pairNumberCeiling;
 	}
 </script>
 
@@ -75,4 +78,4 @@
 	</div>
 </div>
 
-<ProgressBar progress={50} />
+<ProgressBar {progress} />
