@@ -9,8 +9,8 @@
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 
-	// Number from 0 to 90 (collegePairs.length - 1)
-	let pairNumber = 90;
+	// Number from 0 to 91 (collegePairs.length - 1)
+	let pairNumber = 0;
 	const pairNumberCeiling = collegePairs.length;
 	$: [collegeOne, collegeTwo] = collegePairs[pairNumber];
 	$: progress = (pairNumber / pairNumberCeiling) * 100;
