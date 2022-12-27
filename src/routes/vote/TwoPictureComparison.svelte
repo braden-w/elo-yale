@@ -9,11 +9,18 @@
 
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
 	<div class="h-full w-full">
-		<img
-			src={colleges[collegeOne]}
-			alt="Picture of {collegeOne}"
-			class="rounded-2xl object-cover"
-		/>
+		<div class="relative overflow-hidden rounded-lg">
+			<img
+				src={colleges[collegeOne]}
+				alt="Picture of {collegeOne}"
+				class="rounded-2xl object-cover"
+			/>
+			<div
+				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white hover:bg-opacity-50 hover:opacity-90"
+			>
+				<p class="text-4xl font-bold tracking-wider text-white">{collegeOne}</p>
+			</div>
+		</div>
 	</div>
 	<HorizontalDivider class="sm:hidden" />
 	<VerticalDivider class="hidden sm:flex" />

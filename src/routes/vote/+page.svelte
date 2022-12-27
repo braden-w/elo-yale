@@ -6,7 +6,7 @@
 	export let data: PageData;
 </script>
 
-<div class="flex flex-col p-4 gap-2 max-w-4xl mx-auto">
-	<h1 class="text-slate-500">Which Residential College is Best?</h1>
+<div class="mx-auto flex flex-col items-center h-full gap-6 p-6 sm:max-w-4xl">
+	<h1 class="text-xl text-slate-700">Which Residential College is Best?</h1>
 	<TwoPictureComparison />
 </div>
