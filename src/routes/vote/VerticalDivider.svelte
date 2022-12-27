@@ -3,6 +3,6 @@
 		<div class="h-full border-l border-gray-300" />
 	</div>
 	<div class="relative">
-		<span class="px-2 text-sm text-gray-500">or</span>
+		<span class="bg-slate-100 px-2 text-sm text-gray-500">or</span>
 	</div>
 </div>
