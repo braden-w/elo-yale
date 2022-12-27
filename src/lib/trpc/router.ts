@@ -27,7 +27,7 @@ export const router = t.router({
 			throw new Error(error.message);
 		}
 		return data;
-	}
+	})
 });
 
 export type Router = typeof router;
