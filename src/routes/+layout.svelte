@@ -1,5 +1,20 @@
 <script lang="ts">
 	import '../app.postcss';
+	import { supabase } from '$lib/supabaseClient';
+	import { invalidate } from '$app/navigation';
+
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = supabase.auth.onAuthStateChange(() => {
+			invalidate('supabase:auth');
+		});
+
+		return () => {
+			subscription.unsubscribe();
+		};
+	});
+
 	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
