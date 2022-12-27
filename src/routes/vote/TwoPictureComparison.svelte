@@ -9,10 +9,11 @@
 	export let collegeTwo: College = 'Pauli Murray';
 	let animate = true;
 
-	async function submitVote(winnerAndLoser: { winner: College; loser: College }) {
+	async function submitVote(winner: College, loser: College) {
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ const');
 		const res = await trpc().insert.mutate({
-			...winnerAndLoser,
+			winner,
+			loser,
 			user_id: $page.data.session?.user.id ?? null
 		});
 		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ res', res);
@@ -31,7 +32,7 @@
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
 					: ''}"
-				on:click={() => submitVote({ winner: collegeOne, loser: collegeTwo })}
+				on:click={() => submitVote(collegeOne, collegeTwo)}
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeOne}</p>
 			</button>
@@ -50,7 +51,7 @@
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
 					: ''}"
-				on:click={() => submitVote({ winner: collegeTwo, loser: collegeOne })}
+				on:click={() => submitVote(collegeTwo, collegeOne)}
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeTwo}</p>
 			</button>
