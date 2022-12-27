@@ -5,6 +5,8 @@ specifiers:
   '@supabase/supabase-js': ^2.2.2
   '@sveltejs/adapter-auto': ^1.0.0
   '@sveltejs/kit': ^1.0.0
+  '@trpc/client': ^10.7.0
+  '@trpc/server': ^10.7.0
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
   autoprefixer: ^10.4.7
@@ -20,6 +22,7 @@ specifiers:
   svelte-check: ^2.9.2
   svelte-preprocess: ^4.10.7
   tailwindcss: ^3.1.5
+  trpc-sveltekit: ^3.2.2
   tslib: ^2.4.1
   typescript: ^4.9.3
   vite: ^4.0.0
@@ -27,6 +30,9 @@ specifiers:
 dependencies:
   '@supabase/auth-helpers-sveltekit': 0.8.6_x4wcza6jggiv5r5yndlyd26nkq
   '@supabase/supabase-js': 2.2.2
+  '@trpc/client': 10.7.0_@trpc+server@10.7.0
+  '@trpc/server': 10.7.0
+  trpc-sveltekit: 3.2.2
 
 devDependencies:
   '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.1
@@ -455,6 +461,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@trpc/client/10.7.0_@trpc+server@10.7.0:
+    resolution: {integrity: sha512-xCPc2hp37REJst6TXMkJvdc85CHvxpVY6YVdZIjl7uCYoQcrstwy8AWi7ElB3x7e19Cweke+9CAaUXKwAE1AKQ==}
+    peerDependencies:
+      '@trpc/server': 10.7.0
+    dependencies:
+      '@trpc/server': 10.7.0
+    dev: false
+
+  /@trpc/server/10.7.0:
+    resolution: {integrity: sha512-kFhlqhzZt5PwVRRDci8oJKMMFGjjq9189stT6bvS9xuuLjRzzwhMShRi99sm/jqhdjWmlXyO3Ncx0rnghUvH+w==}
+    dev: false
 
   /@types/cookie/0.5.1:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
@@ -2096,6 +2114,13 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+    dev: false
+
+  /trpc-sveltekit/3.2.2:
+    resolution: {integrity: sha512-5a0zXPAODEfb7OiFMzcfv/89fdhWz97NVcVuRgxX9w70Ac8y6POc7ys4Fmh2W586CP/Px6RNPgi0CBJ0pC7ZSg==}
+    dependencies:
+      '@trpc/client': 10.7.0_@trpc+server@10.7.0
+      '@trpc/server': 10.7.0
     dev: false
 
   /tslib/1.14.1:

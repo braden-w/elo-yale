@@ -36,6 +36,9 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.8.6",
-		"@supabase/supabase-js": "^2.2.2"
+		"@supabase/supabase-js": "^2.2.2",
+		"@trpc/client": "^10.7.0",
+		"@trpc/server": "^10.7.0",
+		"trpc-sveltekit": "^3.2.2"
 	}
 }
