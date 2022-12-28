@@ -50,7 +50,7 @@
 				<div class="flex gap-4">
 					<button
 						on:click={signInWithGoogle}
-						class="inline-flex w-fit justify-center rounded-lg bg-stone-200 py-3 px-6 text-stone-700 shadow-xl hover:shadow-2xl"
+						class="inline-flex w-fit justify-center rounded-lg bg-stone-200 py-3 px-6 gap-1 text-stone-700 shadow-xl hover:shadow-2xl"
 						on:mouseover={() => (hover = true)}
 						on:mouseout={() => (hover = false)}
 						on:focus={() => (hover = true)}

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import toast from 'svelte-french-toast';
 
 	import ProgressBar from './ProgressBar.svelte';
@@ -45,7 +44,6 @@
 			},
 			{ position: 'top-right' }
 		);
-		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ res', res);
 		pairNumber = (pairNumber + 1) % pairNumberCeiling;
 	}
 </script>
