@@ -7,7 +7,6 @@
 	import toast from 'svelte-french-toast';
 	import { page } from '$app/stores';
 	import { trpc } from '$lib/trpc/client';
-	import HorizontalDivider from '$lib/components/HorizontalDivider.svelte';
 
 	export let data: PageData;
 	let animate = true;
@@ -96,6 +95,5 @@
 				</div>
 			</div>
 		</section>
-		<HorizontalDivider text="" />
 	{/each}
 </div>
