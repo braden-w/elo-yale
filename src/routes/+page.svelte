@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { colleges, collegeToImage } from '$lib/colleges';
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
-		import { fade } from 'svelte/transition';
 
 	import { supabase } from '$lib/supabaseClient';
 
@@ -18,16 +17,13 @@
 
 <div class="h-full w-full">
 	<div class="relative overflow-hidden">
-		{#key backgroundCollegeIndex}
 		<img
-			in:fade
 			src={collegeToImage[backgroundCollege]}
 			alt={backgroundCollege}
 			class="h-full max-h-screen w-screen object-cover transition duration-150 ease-in-out {hover
 				? '-translate-y-1 scale-105'
 				: ''}"
 		/>
-		{/key}
 		<div
 			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black"
 			class:bg-opacity-40={hover}
