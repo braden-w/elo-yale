@@ -9,8 +9,8 @@
 	import { page } from '$app/stores';
 
 	// Number from 0 to 91 (collegePairs.length - 1)
-	export let pairNumber = 0;
 	export let remainingCollegePairs: CollegePairs;
+	export let pairNumber = 0;
 	const pairNumberCeiling = remainingCollegePairs.length;
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[pairNumber];
 	$: progress = (pairNumber / pairNumberCeiling) * 100;
@@ -44,7 +44,7 @@
 			},
 			{ position: 'top-right' }
 		);
-		pairNumber = (pairNumber + 1) % pairNumberCeiling;
+		pairNumber++;
 	}
 </script>
 
