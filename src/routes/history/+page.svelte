@@ -57,13 +57,9 @@
 			</div>
 
 			<div class="flex h-full w-full gap-4">
-				<div class="h-full w-full">
+				<div class="h-full w-full rounded-2xl ring-slate-400" class:ring-8={collegeOne === winner}>
 					<div class="relative overflow-hidden rounded-2xl">
-						<img
-							src={collegeToImage[collegeOne]}
-							alt="Picture of {collegeOne}"
-							class="rounded-2xl object-cover"
-						/>
+						<img src={collegeToImage[collegeOne]} alt="Picture of {collegeOne}" />
 						<button
 							class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 								? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
@@ -75,13 +71,9 @@
 					</div>
 				</div>
 				<VerticalDivider />
-				<div class="h-full w-full">
+				<div class="h-full w-full rounded-2xl ring-slate-400" class:ring-8 ={collegeTwo === winner}>
 					<div class="relative overflow-hidden rounded-2xl">
-						<img
-							src={collegeToImage[collegeTwo]}
-							alt="Picture of {collegeTwo}"
-							class="rounded-2xl object-cover"
-						/>
+						<img src={collegeToImage[collegeTwo]} alt="Picture of {collegeTwo}" />
 						<button
 							class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 								? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
