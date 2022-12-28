@@ -29,7 +29,7 @@
 				<h2 class="text-2xl">Which Residential College is Actually the Best?</h2>
 				<button
 					on:click={signInWithGoogle}
-					class="peer inline-flex justify-center rounded-lg bg-slate-800 py-2 px-4 shadow-sm hover:bg-gray-700"
+					class="peer inline-flex w-fit justify-center rounded-lg bg-slate-800 py-2 px-4 shadow-sm hover:bg-gray-700"
 				>
 					<!-- <GoogleIcon /> -->
 					<span class="tracking-wider">Sign in with yale.edu to find out</span>
