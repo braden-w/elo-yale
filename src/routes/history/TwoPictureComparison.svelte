@@ -50,12 +50,11 @@
 
 <svelte:window on:keydown={onKeyDown} />
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
-	<div class="h-full w-full">
+	<div class="h-full w-full rounded-2xl">
 		<div class="relative overflow-hidden rounded-2xl">
 			<img
 				src={collegeToImage[collegeOne]}
 				alt="Picture of {collegeOne}"
-				class="rounded-2xl object-cover"
 			/>
 			<button
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
@@ -69,12 +68,11 @@
 	</div>
 	<HorizontalDivider class="sm:hidden" />
 	<VerticalDivider class="hidden sm:flex" />
-	<div class="h-full w-full">
+	<div class="h-full w-full rounded-2xl">
 		<div class="relative overflow-hidden rounded-2xl">
 			<img
 				src={collegeToImage[collegeTwo]}
 				alt="Picture of {collegeTwo}"
-				class="rounded-2xl object-cover"
 			/>
 			<button
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate

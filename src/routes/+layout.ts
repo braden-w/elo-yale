@@ -10,6 +10,7 @@ export const load: LayoutLoad = async (event) => {
 	}
 	const user_id = session.user.id;
 
-	const remainingCollegePairs = await trpc(event).getRemainingVotes.query(user_id);
-	return { session, remainingCollegePairs };
+	const remainingCollegePairs = trpc(event).getRemainingVotes.query(user_id);
+	const voteHistory = trpc(event).getVotes.query(user_id);
+	return { session, remainingCollegePairs, voteHistory };
 };
