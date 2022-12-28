@@ -21,25 +21,21 @@
 				<div class="relative pb-8">
 					{#if index !== leaderboard.length - 1}
 						<span
-							class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-slate-300"
+							class="absolute inset-x-6 top-4 -ml-px h-full w-0.5 bg-slate-300"
 							aria-hidden="true"
 						/>
 					{/if}
 					<div class="relative flex items-center space-x-3">
 						<div>
 							<span class="flex h-12 w-12 items-center justify-center">
-								<img
-									class="h-12 w-12 rounded-lg object-cover"
-									src={collegeToImage[college]}
-									alt=""
-								/>
+								<img class="rounded-lg object-cover" src={collegeToImage[college]} alt={college} />
 							</span>
 						</div>
 						<div class="flex min-w-0 flex-1 items-center justify-between space-x-4 pt-1.5">
 							<div>
 								<p class="text-sm text-gray-500">
-									{college}{' '}
-									<a href={college} class="font-medium text-gray-900">
+									{win_rate.toFixed(0)}{'% '}
+									<a href="/college/{college}" class="font-medium text-gray-900">
 										{college}
 									</a>
 								</p>
