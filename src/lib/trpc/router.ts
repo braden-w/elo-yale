@@ -50,7 +50,12 @@ export const router = t.router({
 		if (error) {
 			throw new Error(error.message);
 		}
-		return data;
+		// Row type is typeof data but all properties are nonullable
+		type NonNullableProperties<T> = {
+			[P in keyof T]: NonNullable<T[P]>;
+		};
+		
+		return data.sort((a, b) => b.win_rate - a.win_rate) as NonNullableProperties<typeof data>;
 	})
 });
 
