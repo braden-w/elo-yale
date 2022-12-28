@@ -15,11 +15,23 @@
 
 	const sortColleges = (a: string, b: string) => [a, b].sort() as [College, College];
 
+	const modifyVoteHistory = (id: string, winner: College, loser: College) => {
+		// Replace the entry with the same id
+		const index = voteHistory.findIndex((vote) => vote.id === id);
+		if (index === -1) return;
+
+		voteHistory[index] = {
+			...voteHistory[index],
+			winner,
+			loser
+		};
+	};
 	async function submitVote(winner: College, loser: College) {
 		const [collegeOne, collegeTwo] = sortColleges(winner, loser);
 		const user_id = $page.data.session?.user.id;
+		const id = `${user_id}-${collegeOne}-${collegeTwo}`;
 		const res = trpc().upsert.mutate({
-			id: `${user_id}-${collegeOne}-${collegeTwo}`,
+			id,
 			winner,
 			loser,
 			user_id: user_id ?? null
@@ -33,6 +45,7 @@
 			},
 			{ position: 'top-right' }
 		);
+		modifyVoteHistory(id, winner, loser);
 	}
 </script>
 
@@ -54,7 +67,10 @@
 			</div>
 
 			<div class="flex h-full w-full gap-4">
-				<div class="h-full w-full rounded-2xl ring-slate-400" class:ring-8={collegeOne === winner}>
+				<div
+					class="h-full w-full rounded-2xl ring-slate-400"
+					class:ring-8={collegeOne === winner}
+				>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeOne]} alt="Picture of {collegeOne}" />
 						<button
@@ -68,7 +84,10 @@
 					</div>
 				</div>
 				<VerticalDivider />
-				<div class="h-full w-full rounded-2xl ring-slate-400" class:ring-8 ={collegeTwo === winner}>
+				<div
+					class="h-full w-full rounded-2xl ring-slate-400"
+					class:ring-8={collegeTwo === winner}
+				>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeTwo]} alt="Picture of {collegeTwo}" />
 						<button
