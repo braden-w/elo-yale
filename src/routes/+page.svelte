@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { colleges, collegeToImage } from '$lib/colleges';
+	import { colleges, collegeToImage, type College } from '$lib/colleges';
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 
 	import { supabase } from '$lib/supabaseClient';
@@ -11,8 +11,9 @@
 		});
 	};
 	let hover = false;
-	let backgroundCollegeIndex = 8
-	$: backgroundCollege = colleges[backgroundCollegeIndex];
+	const slideColleges: College[] = ['Pauli Murray', 'Saybrook', 'Grace Hopper', 'Branford', 'Benjamin Franklin', 'Jonathan Edwards']
+	let backgroundCollegeIndex = 0
+	$: backgroundCollege = slideColleges[backgroundCollegeIndex];
 </script>
 
 <div class="h-full w-full">
@@ -29,14 +30,14 @@
 			class:bg-opacity-40={hover}
 			class:bg-opacity-50={!hover}
 				on:click={() => {
-					backgroundCollegeIndex = (backgroundCollegeIndex + 1) % colleges.length
+					backgroundCollegeIndex = (backgroundCollegeIndex + 1) % slideColleges.length
 				}}
 		>
 			<div class="flex flex-col gap-4 text-white">
 				<h1 class="max-w-3xl text-5xl tracking-wide">
-					Solve the Most Important Question on Campus
+Which Residential College is Actually the Best?
 				</h1>
-				<h2 class="text-2xl">Which Residential College is Actually the Best?</h2>
+				<h2 class="text-2xl">					Solve the Most Important Question on Campus</h2>
 				<button
 					on:click={signInWithGoogle}
 					class="inline-flex w-fit justify-center rounded-lg bg-stone-700 py-2 px-4 shadow-xl hover:shadow-2xl"
