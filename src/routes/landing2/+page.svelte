@@ -3,46 +3,30 @@
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import { supabase } from '$lib/supabaseClient';
 
+	import type { PageData } from './$types';
+	export let data: PageData;
 	const signInWithGoogle = async () => {
 		await supabase.auth.signInWithOAuth({
 			provider: 'google',
 			options: { redirectTo: `${window.location.origin}/vote` }
 		});
 	};
-	let hover = false;
 </script>
 
-<div class="h-full w-full">
-	<div class="relative overflow-hidden">
-		<img
-			src={collegeToImage['Branford']}
-			alt="Branford"
-			class="h-full max-h-screen w-screen object-cover {hover
-				? '-translate-y-1 scale-105 transition duration-150 ease-in-out'
-				: ''}"
-		/>
-		<div
-			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black"
-			class:bg-opacity-40={hover}
-			class:bg-opacity-50={!hover}
-		>
-			<div class="flex flex-col gap-4 text-white">
-				<h1 class="max-w-3xl text-5xl tracking-wide">
-					Solve the Most Important Question on Campus
-				</h1>
-				<h2 class="text-2xl">Which Residential College is Actually the Best?</h2>
-				<button
-					on:click={signInWithGoogle}
-					class="inline-flex w-fit justify-center rounded-lg bg-stone-700 py-2 px-4 shadow-xl hover:shadow-2xl"
-					on:mouseover={() => (hover = true)}
-					on:mouseout={() => (hover = false)}
-					on:focus={() => (hover = true)}
-					on:blur={() => (hover = false)}
-				>
-					<!-- <GoogleIcon /> -->
-					<span class="tracking-wider">Sign in with yale.edu to find out</span>
-				</button>
-			</div>
-		</div>
-	</div>
+<div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-2xl">
+	<img
+		src={collegeToImage['Pauli Murray']}
+		alt="Elo Yale Splash Page"
+		class="h-full rounded-2xl object-cover"
+	/>
+	<h1 class="text-xl tracking-wider text-slate-600">
+		Which Residential College is <span class="tracking-widest text-slate-800">Actually</span> the Best?
+	</h1>
+	<button
+		on:click={signInWithGoogle}
+		class="inline-flex w-full justify-center rounded-xl border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+	>
+		<GoogleIcon />
+		<span class="tracking-wider">Sign in with yale.edu to find out</span>
+	</button>
 </div>
