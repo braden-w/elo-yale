@@ -13,7 +13,7 @@
 
 <div class="h-full w-full">
 	<div class="relative overflow-hidden">
-		<img src={collegeToImage['Branford']} alt="Branford" class="h-screen w-screen object-fill" />
+		<img src={collegeToImage['Branford']} alt="Branford" class="h-screen w-screen object-cover" />
 		<button
 			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-opacity-50 hover:opacity-90 "
 		>
@@ -21,8 +21,8 @@
 				<h1 class="text-4xl font-bold tracking-wider text-white">
 					Solve the Most Important Question on Campus
 				</h1>
-				<h2 class="text-4xl font-bold tracking-wider text-white">
-					Which Residentil College is Actually the Best?
+				<h2 class="text-2xl font-bold tracking-wider text-white">
+					Which Residential College is Actually the Best?
 				</h2>
 			</div>
 		</button>
