@@ -34,7 +34,7 @@
 		<img
 			src={collegeToImage[backgroundCollege]}
 			alt={backgroundCollege}
-			class="h-full max-h-screen w-screen object-cover transition duration-150 ease-in-out {hover
+			class="h-screen w-screen object-cover transition duration-150 ease-in-out {hover
 				? '-translate-y-1 scale-105'
 				: ''}"
 		/>
@@ -43,16 +43,16 @@
 			class:bg-opacity-40={hover}
 			class:bg-opacity-50={!hover}
 		>
-			<div class="flex flex-col gap-4 text-white">
-				<h1 class="max-w-3xl text-5xl tracking-wide ">
+			<div class="flex flex-col gap-4 p-8 text-white">
+				<h1 class="max-w-3xl text-3xl tracking-wide sm:text-5xl ">
 					Which Residential College is <span class="tracking-widest">Actually</span> the Best?
 				</h1>
-				<h2 class="text-2xl ">
+				<h2 class="sm:text-2xl ">
 					Solve the Most Question Important on Campus<span
 						class="bg-gradient-to-l from-current to-white bg-clip-text text-transparent">...</span
 					>
 				</h2>
-				<div class="flex gap-4">
+				<div class="flex gap-2 sm:gap-2">
 					<button
 						on:click={signInWithGoogle}
 						class="inline-flex w-fit justify-center gap-1 rounded-lg bg-stone-200 py-3 px-6 text-stone-700 shadow-xl hover:shadow-2xl"
