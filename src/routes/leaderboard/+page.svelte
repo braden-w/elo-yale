@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {collegeToImage,  type College } from '$lib/colleges';
+	import { collegeToImage, type College } from '$lib/colleges';
 	import type { PageData } from '../history/leaderboard/$types';
 
 	export let data: PageData;
@@ -25,13 +25,17 @@
 							aria-hidden="true"
 						/>
 					{/if}
-					<div class="relative flex space-x-3">
+					<div class="relative flex items-center space-x-3">
 						<div>
-							<span class="flex h-8 w-8 items-center justify-center rounded-full ring-8 ring-white">
-								<img class="h-5 w-5 rounded-full" src={collegeToImage[ college ]} alt="" />
+							<span class="flex h-12 w-12 items-center justify-center">
+								<img
+									class="h-12 w-12 rounded-lg object-cover"
+									src={collegeToImage[college]}
+									alt=""
+								/>
 							</span>
 						</div>
-						<div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+						<div class="flex min-w-0 flex-1 items-center justify-between space-x-4 pt-1.5">
 							<div>
 								<p class="text-sm text-gray-500">
 									{college}{' '}
