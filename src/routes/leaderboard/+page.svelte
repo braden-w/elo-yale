@@ -33,12 +33,12 @@
 								<img class="rounded-lg object-cover" src={collegeToImage[college]} alt={college} />
 							</span>
 						</div>
-						<div class="flex min-w-0 flex-1 items-center justify-between space-x-4 pt-1.5">
-							<a href="/college/{college}" class="font-medium text-slate-900">
+						<div class="flex min-w-0 flex-1 items-stretch justify-between space-x-4 p-8">
+							<a href="/college/{college}" class="text-slate-900">
 								{college}
 							</a>
 							<div class="text-right">
-								<p class="text-slate-800">
+								<p class="text-slate-900">
 									{win_rate.toFixed(0)}%
 								</p>
 								<p class="text-xs text-slate-600">{wins} wins, {losses} losses</p>
