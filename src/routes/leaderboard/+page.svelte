@@ -6,8 +6,8 @@
 	const { leaderboard } = data;
 </script>
 
-<div class="flow-root">
-	<ul class="-mb-8">
+<div class="flow-root p-4">
+	<ul>
 		{#each leaderboard as { college, wins, losses, win_rate }, index}
 			{@const total = (wins ?? 0) + (losses ?? 0)}
 			<!-- <div class="flex flex-col items-center gap-4">
@@ -32,15 +32,15 @@
 							</span>
 						</div>
 						<div class="flex min-w-0 flex-1 items-center justify-between space-x-4 pt-1.5">
-							<div>
-								<p class="text-sm text-gray-500">
-									{win_rate.toFixed(0)}{'% '}
-									<a href="/college/{college}" class="font-medium text-gray-900">
-										{college}
-									</a>
-								</p>
-							</div>
-							<p class="text-center text-slate-500">{wins} wins, {losses} losses</p>
+							<a href="/college/{college}" class="font-medium text-slate-900">
+								{college}
+							</a>
+							<p class="text-center text-slate-500">
+								<span class="text-slate-800">
+									{win_rate.toFixed(0)}%
+								</span>
+								{wins} wins, {losses} losses
+							</p>
 						</div>
 					</div>
 				</div>
