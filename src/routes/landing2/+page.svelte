@@ -18,11 +18,13 @@
 			src={collegeToImage['Branford']}
 			alt="Branford"
 			class="h-full max-h-screen w-screen object-cover {hover
-				? '-translate-y-1 scale-105 bg-opacity-50 opacity-90 transition duration-150 ease-in-out'
+				? '-translate-y-1 scale-105 transition duration-150 ease-in-out'
 				: ''}"
 		/>
 		<div
-			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40"
+			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black"
+			class:bg-opacity-40={hover}
+			class:bg-opacity-50={!hover}
 		>
 			<div class="flex flex-col gap-4 text-white">
 				<h1 class="max-w-3xl text-5xl tracking-wide">
