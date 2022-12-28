@@ -1,5 +1,4 @@
 import { trpc } from '$lib/trpc/client';
-import { redirect } from '@sveltejs/kit';
 import type { LayoutLoad } from './$types';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 

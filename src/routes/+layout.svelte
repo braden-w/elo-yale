@@ -5,7 +5,6 @@
 	import { supabase } from '$lib/supabaseClient';
 	import { onMount } from 'svelte';
 	import '../app.postcss';
-	import type { LayoutData } from './$types';
 
 	onMount(() => {
 		const {
@@ -18,8 +17,6 @@
 			subscription.unsubscribe();
 		};
 	});
-
-	export let data: LayoutData;
 </script>
 
 <div class="flex min-h-screen w-full flex-col items-center bg-slate-200">
