@@ -40,7 +40,7 @@
 									</a>
 								</p>
 							</div>
-							<div class="whitespace-nowrap text-right text-sm text-gray-500">Hello world</div>
+							<p class="text-center text-slate-500">{wins} wins, {losses} losses</p>
 						</div>
 					</div>
 				</div>
