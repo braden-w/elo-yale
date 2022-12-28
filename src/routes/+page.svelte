@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { colleges, collegeToImage, type College } from '$lib/colleges';
-	import GoogleIcon from '$lib/GoogleIcon.svelte';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { collegeToImage, type College } from '$lib/colleges';
 	import PlaceholderImage from '$lib/PlaceholderImage.svelte';
 
 	import { supabase } from '$lib/supabaseClient';
 
 	const signInWithGoogle = async () => {
+		if (loggedIn) {
+			return goto('/vote');
+		}
 		await supabase.auth.signInWithOAuth({
 			provider: 'google',
 			options: { redirectTo: `${window.location.origin}/vote` }
@@ -22,6 +26,7 @@
 	];
 	let backgroundCollegeIndex = 0;
 	$: backgroundCollege = slideColleges[backgroundCollegeIndex];
+	$: loggedIn = $page.data.session;
 </script>
 
 <div class="h-full w-full">
@@ -50,14 +55,16 @@
 				<div class="flex gap-4">
 					<button
 						on:click={signInWithGoogle}
-						class="inline-flex w-fit justify-center rounded-lg bg-stone-200 py-3 px-6 gap-1 text-stone-700 shadow-xl hover:shadow-2xl"
+						class="inline-flex w-fit justify-center gap-1 rounded-lg bg-stone-200 py-3 px-6 text-stone-700 shadow-xl hover:shadow-2xl"
 						on:mouseover={() => (hover = true)}
 						on:mouseout={() => (hover = false)}
 						on:focus={() => (hover = true)}
 						on:blur={() => (hover = false)}
 					>
 						<!-- <GoogleIcon /> -->
-						<span class="tracking-wider">Sign in with yale.edu to find out</span>
+						<span class="tracking-wider">
+							{loggedIn ? 'Vote and find out' : 'Sign in with yale.edu to find out'}
+							</span >
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
