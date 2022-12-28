@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { collegeToImage } from '$lib/colleges';
+	import { colleges, collegeToImage } from '$lib/colleges';
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
+		import { fade } from 'svelte/transition';
+
 	import { supabase } from '$lib/supabaseClient';
 
 	const signInWithGoogle = async () => {
@@ -10,22 +12,31 @@
 		});
 	};
 	let hover = false;
-	const backgroundCollege: College = 'Pauli Murray';
+	let backgroundCollegeIndex = 8
+	$: backgroundCollege = colleges[backgroundCollegeIndex];
 </script>
 
 <div class="h-full w-full">
 	<div class="relative overflow-hidden">
+		{#each colleges as college, index}
+		{#if index === backgroundCollegeIndex}
 		<img
+		transition:fade
 			src={collegeToImage[backgroundCollege]}
 			alt={backgroundCollege}
 			class="h-full max-h-screen w-screen object-cover transition duration-150 ease-in-out {hover
 				? '-translate-y-1 scale-105'
 				: ''}"
 		/>
+		{/if}
+		{/each}
 		<div
 			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black"
 			class:bg-opacity-40={hover}
 			class:bg-opacity-50={!hover}
+				on:click={() => {
+					backgroundCollegeIndex = (backgroundCollegeIndex + 1) % colleges.length
+				}}
 		>
 			<div class="flex flex-col gap-4 text-white">
 				<h1 class="max-w-3xl text-5xl tracking-wide">
