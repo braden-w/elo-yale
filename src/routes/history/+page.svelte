@@ -52,7 +52,8 @@
 <div class="mx-auto flex h-full flex-col items-center gap-4 p-6 sm:max-w-4xl">
 	<h1 class="text-2xl tracking-wide text-slate-700">My Results</h1>
 	{#if voteHistory.length === 0}
-		<p class="text-center text-slate-500">You haven't voted on any matchups yet!</p> <p class="text-center text-slate-500">
+		<p class="text-center text-slate-500">You haven't voted on any matchups yet!</p>
+		<p class="text-center text-slate-500">
 			Go to the <a href="/vote" class="text-slate-600 underline">vote page</a> to vote on matchups.
 		</p>
 	{/if}
@@ -80,7 +81,7 @@
 								: ''}"
 							on:click={() => submitVote(collegeOne, collegeTwo)}
 						>
-							<p class="text-4xl font-bold tracking-wider text-white">{collegeOne}</p>
+							<p class="text-lg font-bold tracking-wider text-white sm:text-4xl">{collegeOne}</p>
 						</button>
 					</div>
 				</div>
@@ -94,7 +95,7 @@
 								: ''}"
 							on:click={() => submitVote(collegeTwo, collegeOne)}
 						>
-							<p class="text-4xl font-bold tracking-wider text-white">{collegeTwo}</p>
+							<p class="text-lg font-bold tracking-wider text-white sm:text-4xl">{collegeTwo}</p>
 						</button>
 					</div>
 				</div>
