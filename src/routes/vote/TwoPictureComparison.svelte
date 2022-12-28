@@ -89,5 +89,7 @@
 	</div>
 </div>
 
-<ProgressBar {progress} />
-{numberVoted} out of {numberVoted + numberRemaining}
+<div class="flex w-full flex-col items-center">
+	<ProgressBar {progress} />
+	<span class="text-slate-900">{numberVoted} out of {numberVoted + numberRemaining}</span>
+</div>
