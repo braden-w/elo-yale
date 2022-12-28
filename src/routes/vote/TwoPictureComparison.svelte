@@ -4,16 +4,17 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import HorizontalDivider from '$lib/components/HorizontalDivider.svelte';
 	import VerticalDivider from '$lib/components/VerticalDivider.svelte';
-	import { collegeToImage, type College, type CollegePairs } from '$lib/colleges';
+	import { allCollegePairs, collegeToImage, type College, type CollegePairs } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 
 	// Number from 0 to 91 (collegePairs.length - 1)
 	export let remainingCollegePairs: CollegePairs;
 	export let pairNumber = 0;
-	const pairNumberCeiling = remainingCollegePairs.length;
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[pairNumber];
-	$: progress = (pairNumber / pairNumberCeiling) * 100;
+	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + pairNumber;
+	$: numberRemaining = remainingCollegePairs.length - pairNumber;
+	$: progress = (numberVoted / (numberVoted + numberRemaining)) * 100;
 	let animate = true;
 
 	// When the number 1 is pressed, the first college is the winner
