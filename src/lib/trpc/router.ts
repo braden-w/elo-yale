@@ -44,6 +44,13 @@ export const router = t.router({
 		});
 		if (remainingCollegePairs.length === 0) return null;
 		return remainingCollegePairs;
+	}),
+	getLeaderboard: t.procedure.query(async () => {
+		const { data, error } = await supabase.from('leaderboard').select();
+		if (error) {
+			throw new Error(error.message);
+		}
+		return data;
 	})
 });
 
