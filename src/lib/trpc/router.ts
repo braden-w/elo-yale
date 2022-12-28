@@ -54,8 +54,10 @@ export const router = t.router({
 		type NonNullableProperties<T> = {
 			[P in keyof T]: NonNullable<T[P]>;
 		};
-		
-		return data.sort((a, b) => b.win_rate - a.win_rate) as NonNullableProperties<typeof data>;
+
+		return (data as NonNullableProperties<typeof data[0]>[]).sort(
+			(a, b) => b.win_rate - a.win_rate
+		);
 	})
 });
 
