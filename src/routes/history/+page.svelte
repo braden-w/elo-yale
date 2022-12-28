@@ -67,10 +67,7 @@
 			</div>
 
 			<div class="flex h-full w-full gap-4">
-				<div
-					class="h-full w-full rounded-2xl ring-slate-400"
-					class:ring-8={collegeOne === winner}
-				>
+				<div class="h-full w-full rounded-2xl ring-stone-400" class:ring-8={collegeOne === winner}>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeOne]} alt="Picture of {collegeOne}" />
 						<button
@@ -84,10 +81,7 @@
 					</div>
 				</div>
 				<VerticalDivider />
-				<div
-					class="h-full w-full rounded-2xl ring-slate-400"
-					class:ring-8={collegeTwo === winner}
-				>
+				<div class="h-full w-full rounded-2xl ring-stone-400" class:ring-8={collegeTwo === winner}>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeTwo]} alt="Picture of {collegeTwo}" />
 						<button
