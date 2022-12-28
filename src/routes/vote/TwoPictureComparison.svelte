@@ -90,3 +90,4 @@
 </div>
 
 <ProgressBar {progress} />
+{numberVoted} out of {numberVoted + numberRemaining}
