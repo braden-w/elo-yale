@@ -17,8 +17,8 @@
 		<img
 			src={collegeToImage['Branford']}
 			alt="Branford"
-			class="h-full max-h-screen w-screen object-cover {hover
-				? '-translate-y-1 scale-105 transition duration-150 ease-in-out'
+			class="h-full max-h-screen w-screen object-cover transition duration-150 ease-in-out {hover
+				? '-translate-y-1 scale-105'
 				: ''}"
 		/>
 		<div
