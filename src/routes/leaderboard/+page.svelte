@@ -12,13 +12,6 @@
 	<ul>
 		{#each leaderboard as { college, wins, losses, win_rate }, index}
 			{@const total = (wins ?? 0) + (losses ?? 0)}
-			<!-- <div class="flex flex-col items-center gap-4">
-		<h1 class="text-2xl tracking-wide text-slate-700">{college}</h1>
-		<p class="text-center text-slate-500">Wins: {wins}</p>
-
-		<p class="text-center text-slate-500">Losses: {total}</p>
-		<p class="text-center text-slate-500">Winrate: {win_rate}</p>
-	</div> -->
 			<li>
 				<div class="relative pb-8">
 					{#if index !== leaderboard.length - 1}
@@ -33,7 +26,7 @@
 								<img class="rounded-lg object-cover" src={collegeToImage[college]} alt={college} />
 							</span>
 						</div>
-						<div class="flex min-w-0 flex-1 items-stretch justify-between space-x-4 p-8">
+						<div class="flex min-w-0 flex-1 items-stretch justify-between space-x-4 p-4">
 							<a href="/college/{college}" class="text-slate-900">
 								{college}
 							</a>
