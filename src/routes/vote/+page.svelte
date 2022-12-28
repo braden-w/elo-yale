@@ -17,8 +17,13 @@
 			<h1 class="text-lg tracking-wide text-slate-700 sm:text-2xl">
 				You've voted on all the pairs!
 			</h1>
-			<h2 class="tracking-wide text-slate-700">
-				<a href="/leaderboard" class="text-xs text-sky-700 hover:text-sky-900">Go to leaderboard</a>
+			<h2 class="text-center text-xs tracking-wide text-slate-700">
+				Go to
+				<a href="/leaderboard">
+					<span class="text-sky-700 hover:text-sky-900">leaderboard</span>
+				</a>
+				or see your
+				<a href="/history"> <span class="text-sky-700 hover:text-sky-900">vote history</span></a>
 			</h2>
 		</div>
 	{:else}
