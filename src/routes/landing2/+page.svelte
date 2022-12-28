@@ -3,8 +3,6 @@
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import { supabase } from '$lib/supabaseClient';
 
-	import type { PageData } from './$types';
-	export let data: PageData;
 	const signInWithGoogle = async () => {
 		await supabase.auth.signInWithOAuth({
 			provider: 'google',
