@@ -27,7 +27,7 @@
 							aria-hidden="true"
 						/>
 					{/if}
-					<div class="relative flex items-center space-x-3">
+					<div class="relative flex items-center space-x-3 rounded-lg bg-stone-300 p-2">
 						<div>
 							<span class="flex h-12 w-12 items-center justify-center">
 								<img class="rounded-lg object-cover" src={collegeToImage[college]} alt={college} />
