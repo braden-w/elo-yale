@@ -5,14 +5,15 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import HorizontalDivider from './HorizontalDivider.svelte';
 	import VerticalDivider from './VerticalDivider.svelte';
-	import { collegePairs, collegeToImage, type College } from '$lib/colleges';
+	import { collegeToImage, type College, type CollegePairs } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 
 	// Number from 0 to 91 (collegePairs.length - 1)
-	let pairNumber = 0;
-	const pairNumberCeiling = collegePairs.length;
-	$: [collegeOne, collegeTwo] = collegePairs[pairNumber];
+	export let pairNumber = 0;
+	export let remainingCollegePairs: CollegePairs;
+	const pairNumberCeiling = remainingCollegePairs.length;
+	$: [collegeOne, collegeTwo] = remainingCollegePairs[pairNumber];
 	$: progress = (pairNumber / pairNumberCeiling) * 100;
 	let animate = true;
 

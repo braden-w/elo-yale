@@ -35,7 +35,10 @@ export const colleges = [
 	'Trumbull'
 ] as const;
 
+export type CollegePair = [College, College];
+export type CollegePairs = CollegePair[];
+
 // Generate all unique pairs of colleges
-export const collegePairs = colleges.flatMap((college, i) => {
+export const allCollegePairs = colleges.flatMap((college, i) => {
 	return colleges.slice(i + 1).map((otherCollege) => [college, otherCollege]);
-});
+}) as CollegePairs;

@@ -1,4 +1,4 @@
-import { colleges } from '$lib/colleges';
+import { allCollegePairs, colleges } from '$lib/colleges';
 import { supabase } from '$lib/supabaseClient';
 import type { Context } from '$lib/trpc/context';
 import { initTRPC } from '@trpc/server';
@@ -21,12 +21,29 @@ export const router = t.router({
 		}
 		return data;
 	}),
-	get: t.procedure.input(z.string()).query(async (req) => {
+	getVotes: t.procedure.input(z.string()).query(async (req) => {
 		const { data, error } = await supabase.from('votes').select().eq('user_id', req.input);
 		if (error) {
 			throw new Error(error.message);
 		}
 		return data;
+	}),
+	getRemainingVotes: t.procedure.input(z.string()).query(async ({ input: user_id }) => {
+		const { data: userVotes, error } = await supabase.from('votes').select().eq('user_id', user_id);
+		if (error) {
+			throw new Error(error.message);
+		}
+		// Return remainingCollegePairs from allCollegePairs that the user has not voted on
+		const remainingCollegePairs = allCollegePairs.filter(([collegeOne, collegeTwo]) => {
+			return !userVotes.some((vote) => {
+				return (
+					(vote.winner === collegeOne && vote.loser === collegeTwo) ||
+					(vote.winner === collegeTwo && vote.loser === collegeOne)
+				);
+			});
+		});
+		if (remainingCollegePairs.length === 0) return null;
+		return remainingCollegePairs;
 	})
 });
 
