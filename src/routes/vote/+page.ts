@@ -10,11 +10,6 @@ export const load: PageLoad = (async (event) => {
 	}
 	const user_id = session.user.id;
 
-	console.log('🚀 ~ file: +page.ts:14 ~ constload:PageLoad= ~ user_id', user_id);
 	const remainingCollegePairs = await trpc(event).getRemainingVotes.query(user_id);
-	console.log(
-		'🚀 ~ file: +page.ts:15 ~ constload:PageLoad= ~ remainingCollegePairs',
-		remainingCollegePairs
-	);
 	return { remainingCollegePairs };
 }) satisfies PageLoad;
