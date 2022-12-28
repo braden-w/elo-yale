@@ -17,14 +17,14 @@
 >
 	<div class="flex h-full items-center justify-center">
 		<div class="flex flex-col items-center justify-center gap-2 rounded-lg bg-white p-6 shadow-lg">
-			<h1 class="text-2xl tracking-widest text-slate-900">Elo Yale</h1>
-			<h1 class="text-xl tracking-wider text-slate-600">
+			<h1 class="text-xl tracking-widest text-slate-900">Elo Yale</h1>
+			<h1 class="tracking-wider text-slate-600">
 				Which Residential College is <span class="tracking-widest text-slate-800">Actually</span> the
 				Best?
 			</h1>
 			<button
 				on:click={signInWithGoogle}
-				class="inline-flex w-full justify-center rounded-xl border border-gray-300 bg-slate-700 py-2 px-4 text-sm font-medium text-slate-100 shadow-sm hover:bg-gray-700"
+				class="inline-flex w-full justify-center rounded-xl border border-gray-300 bg-slate-700 py-2 px-4 text-slate-100 shadow-sm hover:bg-gray-700"
 			>
 				<!-- <GoogleIcon /> -->
 				<span class="tracking-wider">Sign in with yale.edu to find out</span>
