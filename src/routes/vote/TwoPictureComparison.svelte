@@ -91,5 +91,8 @@
 
 <div class="flex w-full flex-col items-center">
 	<ProgressBar {progress} />
-	<span class="text-slate-900">{numberVoted} out of {numberVoted + numberRemaining}</span>
+	<p class="text-slate-900">
+		{numberVoted} out of {numberVoted + numberRemaining}
+	</p>
+	<a href="/history"><span class="text-sm text-sky-700 hover:text-sky-900">See history</span></a>
 </div>
