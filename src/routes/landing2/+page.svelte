@@ -33,7 +33,7 @@
 				<h2 class="text-2xl">Which Residential College is Actually the Best?</h2>
 				<button
 					on:click={signInWithGoogle}
-					class="inline-flex w-fit justify-center rounded-lg bg-slate-800 py-2 px-4 shadow-sm hover:bg-gray-700"
+					class="inline-flex w-fit justify-center rounded-lg bg-stone-700 py-2 px-4 shadow-xl hover:shadow-2xl"
 					on:mouseover={() => (hover = true)}
 					on:mouseout={() => (hover = false)}
 					on:focus={() => (hover = true)}
