@@ -45,7 +45,17 @@
 	{#each voteHistory as { winner, loser }}
 		{@const [collegeOne, collegeTwo] = sortColleges(winner, loser)}
 		<section class="flex flex-col items-center gap-6">
-			<h2 class="text-xl tracking-wide text-slate-700">{collegeOne} vs {collegeTwo}</h2>
+			<div class="relative w-full">
+				<div class="absolute inset-0 flex items-center" aria-hidden="true">
+					<div class="w-full border-t border-gray-300" />
+				</div>
+				<div class="relative flex justify-center">
+					<h2 class="bg-slate-200 px-3 text-xl font-medium tracking-wide text-slate-500">
+						{collegeOne} vs {collegeTwo}
+					</h2>
+				</div>
+			</div>
+
 			<div class="flex h-full w-full gap-4">
 				<div class="h-full w-full">
 					<div class="relative overflow-hidden rounded-2xl">
@@ -64,7 +74,7 @@
 						</button>
 					</div>
 				</div>
-				<VerticalDivider class="" />
+				<VerticalDivider />
 				<div class="h-full w-full">
 					<div class="relative overflow-hidden rounded-2xl">
 						<img
@@ -84,6 +94,6 @@
 				</div>
 			</div>
 		</section>
-		<HorizontalDivider class="w-full" />
+		<HorizontalDivider text="" />
 	{/each}
 </div>
