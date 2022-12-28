@@ -18,17 +18,15 @@
 
 <div class="h-full w-full">
 	<div class="relative overflow-hidden">
-		{#each colleges as college, index}
-		{#if index === backgroundCollegeIndex}
+		{#each [colleges[backgroundCollegeIndex]] as college (backgroundCollegeIndex)}
 		<img
-		transition:fade
+		in:fade
 			src={collegeToImage[backgroundCollege]}
 			alt={backgroundCollege}
 			class="h-full max-h-screen w-screen object-cover transition duration-150 ease-in-out {hover
 				? '-translate-y-1 scale-105'
 				: ''}"
 		/>
-		{/if}
 		{/each}
 		<div
 			class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black"
