@@ -37,12 +37,12 @@
 							<a href="/college/{college}" class="font-medium text-slate-900">
 								{college}
 							</a>
-							<p class="text-center text-slate-500">
-								<span class="text-slate-800">
+							<div class="text-right">
+								<p class="text-slate-800">
 									{win_rate.toFixed(0)}%
-								</span>
-								{wins} wins, {losses} losses
-							</p>
+								</p>
+								<p class="text-xs text-slate-600">{wins} wins, {losses} losses</p>
+							</div>
 						</div>
 					</div>
 				</div>
