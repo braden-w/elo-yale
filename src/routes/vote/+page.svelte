@@ -13,7 +13,7 @@
 	{#if remainingCollegePairs === null}
 		<p class="text-xl text-slate-700">You've voted on all the pairs!</p>
 	{:else}
-	<TwoPictureComparison {remainingCollegePairs} />
+		<TwoPictureComparison {remainingCollegePairs} />
 	{/if}
 	<div class="hidden sm:block"><KeyboardShortcutAlert /></div>
 </div>
