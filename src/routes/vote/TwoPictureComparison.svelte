@@ -12,9 +12,10 @@
 	export let remainingCollegePairs: CollegePairs;
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
+	const totalNumberPairs = allCollegePairs.length;
+
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
-	$: numberRemaining = remainingCollegePairs.length - numberVotedSoFar;
-	$: progress = (numberVotedSoFar / (numberVotedSoFar + numberRemaining)) * 100;
+	$: progress = (numberVotedSoFar / totalNumberPairs) * 100;
 	let animate = true;
 
 	// When the number 1 is pressed, the first college is the winner
@@ -99,7 +100,7 @@
 <div class="flex w-full flex-col items-center">
 	<ProgressBar {progress} />
 	<p class="text-slate-900">
-		{numberVotedSoFar} out of {numberVotedSoFar + numberRemaining}
+		{numberVotedSoFar} out of {totalNumberPairs}
 	</p>
 	<a href="/history"><span class="text-sm text-sky-700 hover:text-sky-900">See history</span></a>
 </div>
