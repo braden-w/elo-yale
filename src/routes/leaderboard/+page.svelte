@@ -8,10 +8,10 @@
 
 <div class="flex flex-col items-center gap-6 p-6">
 	<!-- <div class="mx-auto flex h-full flex-col items-center gap-4 p-6 sm:max-w-4xl"> -->
-	<h1 class="text-2xl tracking-wide text-slate-700">Leaderboard</h1>
+	<h1 class="text-3xl tracking-wide text-slate-700">Leaderboard</h1>
 	<ul>
 		{#each leaderboard as { college, wins, losses, win_rate }, index}
-			{@const total = (wins ?? 0) + (losses ?? 0)}
+			<!-- {@const total = (wins ?? 0) + (losses ?? 0)} -->
 			<li>
 				<div class="relative pb-8">
 					{#if index !== leaderboard.length - 1}
