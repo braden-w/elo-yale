@@ -39,6 +39,7 @@
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.8.6",
 		"@supabase/supabase-js": "^2.2.2",
+		"@tanstack/svelte-query": "^4.24.10",
 		"@trpc/client": "^10.7.0",
 		"@trpc/server": "^10.7.0",
 		"svelte-french-toast": "^1.0.3",
