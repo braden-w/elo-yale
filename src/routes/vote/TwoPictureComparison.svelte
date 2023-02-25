@@ -13,22 +13,22 @@
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
-	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + numberVotedSoFar;
 	$: numberRemaining = remainingCollegePairs.length - numberVotedSoFar;
-	$: progress = (numberVoted / (numberVoted + numberRemaining)) * 100;
+	$: progress = (numberVotedSoFar / (numberVotedSoFar + numberRemaining)) * 100;
 	let animate = true;
 
 	// When the number 1 is pressed, the first college is the winner
 	// When the number 2 is pressed, the second college is the winner
 	function onKeyDown(e: KeyboardEvent) {
 		if (e.key === '1') {
-			submitVote(collegeOne, collegeTwo);
+			submitVote({ winner: collegeOne, loser: collegeTwo });
 		} else if (e.key === '2') {
-			submitVote(collegeTwo, collegeOne);
+			submitVote({ winner: collegeTwo, loser: collegeOne });
 		}
 	}
 
-	async function submitVote(winner: College, loser: College) {
+	type SubmitVote = { winner: College; loser: College };
+	async function submitVote({ winner, loser }: SubmitVote) {
 		const user_id = $page.data.session?.user.id;
 		const res = trpc().upsert.mutate({
 			id: `${user_id}-${collegeOne}-${collegeTwo}`,
@@ -69,7 +69,7 @@
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
 					: ''}"
-				on:click={() => submitVote(collegeOne, collegeTwo)}
+				on:click={() => $query.mutate({ winner: collegeOne, loser: collegeTwo })}
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeOne}</p>
 			</button>
@@ -88,7 +88,7 @@
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
 					: ''}"
-				on:click={() => submitVote(collegeTwo, collegeOne)}
+				on:click={() => $query.mutate({ loser: collegeOne, winner: collegeTwo })}
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeTwo}</p>
 			</button>
@@ -99,7 +99,7 @@
 <div class="flex w-full flex-col items-center">
 	<ProgressBar {progress} />
 	<p class="text-slate-900">
-		{numberVoted} out of {numberVoted + numberRemaining}
+		{numberVotedSoFar} out of {numberVotedSoFar + numberRemaining}
 	</p>
 	<a href="/history"><span class="text-sm text-sky-700 hover:text-sky-900">See history</span></a>
 </div>
