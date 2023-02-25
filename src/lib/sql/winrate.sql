@@ -1,7 +1,9 @@
+CREATE VIEW leaderboard AS
 SELECT
 	COALESCE(w.winner, l.loser) AS college,
 	COALESCE(w.wins, 0) AS wins,
 	COALESCE(l.losses, 0) AS losses,
+	(COALESCE(w.wins, 0) + COALESCE(l.losses, 0)) AS total,
 	(
 		COALESCE(w.wins, 0) * 100.0 / (COALESCE(w.wins, 0) + COALESCE(l.losses, 0))
 	) AS win_rate
