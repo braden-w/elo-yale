@@ -7,7 +7,6 @@
 	import { allCollegePairs, collegeToImage, type College, type CollegePairs } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
-	import { createMutation } from '@tanstack/svelte-query';
 
 	export let remainingCollegePairs: CollegePairs;
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
@@ -46,15 +45,8 @@
 			},
 			{ position: 'top-right' }
 		);
+		numberVotedSoFar++;
 	}
-
-	const query = createMutation({
-		mutationKey: ['vote', { collegeOne, collegeTwo }],
-		mutationFn: submitVote,
-		onSuccess: () => {
-			numberVotedSoFar++;
-		}
-	});
 </script>
 
 <svelte:window on:keydown={onKeyDown} />
@@ -70,7 +62,7 @@
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
 					: ''}"
-				on:click={() => $query.mutate({ winner: collegeOne, loser: collegeTwo })}
+				on:click={() => submitVote({ winner: collegeOne, loser: collegeTwo })}
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeOne}</p>
 			</button>
@@ -89,7 +81,7 @@
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
 					: ''}"
-				on:click={() => $query.mutate({ loser: collegeOne, winner: collegeTwo })}
+				on:click={() => submitVote({ loser: collegeOne, winner: collegeTwo })}
 			>
 				<p class="text-4xl font-bold tracking-wider text-white">{collegeTwo}</p>
 			</button>
