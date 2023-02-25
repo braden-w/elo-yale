@@ -14,7 +14,7 @@
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
 	{#if remainingCollegePairs === null || remainingCollegePairs.length === pairNumber}
 		<div class="flex flex-col items-center gap-2">
-			<h1 class="text-lg tracking-wide text-slate-700 sm:text-2xl">
+			<h1 class="text-3xl tracking-wide text-slate-700 sm:text-3xl">
 				You've voted on all the pairs!
 			</h1>
 			<h2 class="text-center text-xs tracking-wide text-slate-700">
@@ -28,7 +28,7 @@
 		</div>
 	{:else}
 		<div class="flex flex-col items-center gap-2">
-			<h1 class="text-lg tracking-wide text-slate-700 sm:text-2xl">
+			<h1 class="text-3xl tracking-wide text-slate-700 sm:text-3xl">
 				Which Residential College is Best?
 			</h1>
 			<h2 class="text-xs tracking-wide text-slate-700">
