@@ -75,7 +75,7 @@
 				<div
 					class="h-full w-full rounded-2xl ring-stone-400"
 					class:ring-8={collegeOne === winner}
-					class:opacity-50={collegeOne === loser}
+					class:opacity-70={collegeOne === loser}
 				>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeOne]} alt="Picture of {collegeOne}" />
@@ -93,7 +93,7 @@
 				<div
 					class="h-full w-full rounded-2xl ring-stone-400"
 					class:ring-8={collegeTwo === winner}
-					class:opacity-50={collegeTwo === loser}
+					class:opacity-70={collegeTwo === loser}
 				>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeTwo]} alt="Picture of {collegeTwo}" />
