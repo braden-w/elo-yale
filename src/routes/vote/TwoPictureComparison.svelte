@@ -8,8 +8,8 @@
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 
-	// Number from 0 to 91 (collegePairs.length - 1)
 	export let remainingCollegePairs: CollegePairs;
+	// Number from 0 to 90 (collegePairs.length - 1)
 	export let numberVotedSoFar = 0;
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
 	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + numberVotedSoFar;
