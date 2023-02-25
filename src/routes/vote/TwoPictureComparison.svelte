@@ -9,7 +9,7 @@
 	import { page } from '$app/stores';
 
 	export let remainingCollegePairs: CollegePairs;
-	// Number from 0 to 90 (collegePairs.length - 1)
+	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
 	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + numberVotedSoFar;
