@@ -10,7 +10,7 @@
 
 	export let remainingCollegePairs: CollegePairs;
 	// Number from 0 to 90 (collegePairs.length - 1)
-	export let numberVotedSoFar = 0;
+	export let numberVotedSoFar: number;
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
 	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + numberVotedSoFar;
 	$: numberRemaining = remainingCollegePairs.length - numberVotedSoFar;
