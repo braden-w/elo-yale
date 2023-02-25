@@ -1,8 +1,6 @@
 <script lang="ts">
 	import YouVoted from './YouVoted.svelte';
-
 	import TwoPictureComparison from './TwoPictureComparison.svelte';
-
 	import type { PageData } from './$types';
 	import KeyboardShortcutAlert from './KeyboardShortcutAlert.svelte';
 
