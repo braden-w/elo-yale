@@ -10,10 +10,10 @@
 
 	// Number from 0 to 91 (collegePairs.length - 1)
 	export let remainingCollegePairs: CollegePairs;
-	export let pairNumber = 0;
-	$: [collegeOne, collegeTwo] = remainingCollegePairs[pairNumber];
-	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + pairNumber;
-	$: numberRemaining = remainingCollegePairs.length - pairNumber;
+	export let numberVotedSoFar = 0;
+	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
+	$: numberVoted = allCollegePairs.length - remainingCollegePairs.length + numberVotedSoFar;
+	$: numberRemaining = remainingCollegePairs.length - numberVotedSoFar;
 	$: progress = (numberVoted / (numberVoted + numberRemaining)) * 100;
 	let animate = true;
 
@@ -45,7 +45,7 @@
 			},
 			{ position: 'top-right' }
 		);
-		pairNumber++;
+		numberVotedSoFar++;
 	}
 </script>
 

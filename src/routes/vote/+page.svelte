@@ -5,14 +5,14 @@
 	import KeyboardShortcutAlert from './KeyboardShortcutAlert.svelte';
 
 	export let data: PageData;
-	let { remainingCollegePairs } = data;
-	let pairNumber = 0;
+	let { remainingCollegePairs, voteHistory } = data;
+	let numberVotedSoFar = voteHistory.length;
 </script>
 
 <!-- {JSON.stringify(remainingCollegePairs)} -->
-<!-- {pairNumber} -->
+<!-- {numberVotedSoFar} -->
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
-	{#if remainingCollegePairs === null || remainingCollegePairs.length === pairNumber}
+	{#if remainingCollegePairs === null || remainingCollegePairs.length === numberVotedSoFar}
 		<YouVoted />
 	{:else}
 		<div class="flex flex-col items-center gap-2">
@@ -23,7 +23,7 @@
 				Your vote matters – please be honest! Results are displayed after you vote.
 			</h2>
 		</div>
-		<TwoPictureComparison bind:pairNumber bind:remainingCollegePairs />
+		<TwoPictureComparison bind:numberVotedSoFar bind:remainingCollegePairs />
 	{/if}
 	<div class="hidden sm:block"><KeyboardShortcutAlert /></div>
 </div>
