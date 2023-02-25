@@ -7,6 +7,7 @@
 	import { allCollegePairs, collegeToImage, type College, type CollegePairs } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
+	import { createMutation } from '@tanstack/svelte-query';
 
 	export let remainingCollegePairs: CollegePairs;
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
@@ -28,7 +29,6 @@
 	}
 
 	async function submitVote(winner: College, loser: College) {
-		console.log('🚀 ~ file: TwoPictureComparison.svelte:17 ~ res ~ const');
 		const user_id = $page.data.session?.user.id;
 		const res = trpc().upsert.mutate({
 			id: `${user_id}-${collegeOne}-${collegeTwo}`,
@@ -45,8 +45,15 @@
 			},
 			{ position: 'top-right' }
 		);
-		numberVotedSoFar++;
 	}
+
+	const query = createMutation({
+		mutationKey: ['vote', { collegeOne, collegeTwo }],
+		mutationFn: submitVote,
+		onSuccess: () => {
+			numberVotedSoFar++;
+		}
+	});
 </script>
 
 <svelte:window on:keydown={onKeyDown} />
