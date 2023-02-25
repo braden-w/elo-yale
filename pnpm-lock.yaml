@@ -5,7 +5,6 @@ specifiers:
   '@supabase/supabase-js': ^2.2.2
   '@sveltejs/adapter-auto': ^1.0.0
   '@sveltejs/kit': ^1.0.0
-  '@tanstack/svelte-query': ^4.24.10
   '@trpc/client': ^10.7.0
   '@trpc/server': ^10.7.0
   '@typescript-eslint/eslint-plugin': ^5.45.0
@@ -34,7 +33,6 @@ specifiers:
 dependencies:
   '@supabase/auth-helpers-sveltekit': 0.8.6_x4wcza6jggiv5r5yndlyd26nkq
   '@supabase/supabase-js': 2.2.2
-  '@tanstack/svelte-query': 4.24.10_svelte@3.55.0
   '@trpc/client': 10.7.0_@trpc+server@10.7.0
   '@trpc/server': 10.7.0
   svelte-french-toast: 1.0.3_svelte@3.55.0
@@ -469,19 +467,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /@tanstack/query-core/4.24.10:
-    resolution: {integrity: sha512-2QywqXEAGBIUoTdgn1lAB4/C8QEqwXHj2jrCLeYTk2xVGtLiPEUD8jcMoeB2noclbiW2mMt4+Fq7fZStuz3wAQ==}
-    dev: false
-
-  /@tanstack/svelte-query/4.24.10_svelte@3.55.0:
-    resolution: {integrity: sha512-KwwKzMhxo0EzG7ODPNhjH1uViOR49N4WKa75UGW8PzdJ8TBysy79wkDrP5Ijf32NhI8axfzDALdtv/2jMWa+iQ==}
-    peerDependencies:
-      svelte: ^3.54.0
-    dependencies:
-      '@tanstack/query-core': 4.24.10
-      svelte: 3.55.0
-    dev: false
 
   /@trpc/client/10.7.0_@trpc+server@10.7.0:
     resolution: {integrity: sha512-xCPc2hp37REJst6TXMkJvdc85CHvxpVY6YVdZIjl7uCYoQcrstwy8AWi7ElB3x7e19Cweke+9CAaUXKwAE1AKQ==}
