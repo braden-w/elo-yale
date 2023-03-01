@@ -39,7 +39,18 @@ export interface Database {
 			};
 		};
 		Functions: {
-			[_ in never]: never;
+			personal_summary: {
+				Args: {
+					p_user_id: string;
+				};
+				Returns: {
+					college: string;
+					wins: number;
+					losses: number;
+					total: number;
+					win_rate: number;
+				}[];
+			};
 		};
 		Enums: {
 			[_ in never]: never;

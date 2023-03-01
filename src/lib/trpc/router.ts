@@ -76,6 +76,15 @@ export const router = t.router({
 		return (data as NonNullableProperties<typeof data[0]>[]).sort(
 			(a, b) => b.win_rate - a.win_rate
 		);
+	}),
+	getPersonalSummary: t.procedure.input(z.string()).query(async ({ input: p_user_id }) => {
+		const { data, error } = await supabase.rpc('personal_summary', {
+			p_user_id
+		});
+		if (error) {
+			throw new Error(error.message);
+		}
+		return data;
 	})
 });
 
