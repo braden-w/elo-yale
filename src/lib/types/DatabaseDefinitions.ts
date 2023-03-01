@@ -39,7 +39,12 @@ export interface Database {
 			};
 		};
 		Functions: {
-			[_ in never]: never;
+			personal_summary: {
+				Args: {
+					p_user_id: string;
+				};
+				Returns: Record<string, unknown>;
+			};
 		};
 		Enums: {
 			[_ in never]: never;
