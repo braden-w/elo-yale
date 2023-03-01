@@ -1,4 +1,6 @@
 <script lang="ts">
+  import ResidentialCollegeModal from './ResidentialCollegeModal.svelte';
+
 	import { Toaster } from 'svelte-french-toast';
 
 	import { invalidate } from '$app/navigation';
@@ -26,3 +28,5 @@
 	</div>
 	<slot />
 </div>
+
+<ResidentialCollegeModal></ResidentialCollegeModal>
