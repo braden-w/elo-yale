@@ -1,3 +1,5 @@
+CREATE
+OR REPLACE PROCEDURE get_college_stats (IN p_user_id UUID) LANGUAGE SQL AS $$
 SELECT
 	COALESCE(w.winner, l.loser) AS college,
 	COALESCE(w.wins, 0) AS wins,
@@ -14,7 +16,7 @@ FROM
 		FROM
 			votes
 		WHERE
-			user_id = 'c0341c82-211b-45a0-b61f-84a6c1fccc0f'
+			user_id = p_user_id
 		GROUP BY
 			winner
 	) w FULL
@@ -25,9 +27,11 @@ FROM
 		FROM
 			votes
 		WHERE
-			user_id = 'c0341c82-211b-45a0-b61f-84a6c1fccc0f'
+			user_id = p_user_id
 		GROUP BY
 			loser
 	) l ON w.winner = l.loser
 ORDER BY
-	win_rate DESC
+	win_rate DESC;
+
+$$;
