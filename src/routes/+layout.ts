@@ -17,7 +17,11 @@ export const load: LayoutLoad = async (event) => {
 	if (!session) return { session, remainingCollegePairs: [], voteHistory: [] };
 	const user_id = session.user.id;
 
-	const remainingCollegePairs = trpc(event).getRemainingVotes.query(user_id);
+	const remainingCollegePairs = trpc(event).getRemainingMatchupsScrambled.query(user_id);
 	const voteHistory = trpc(event).getVotes.query(user_id);
-	return { session, remainingCollegePairs, voteHistory };
+	return {
+		session,
+		remainingCollegePairs,
+		voteHistory
+	};
 };

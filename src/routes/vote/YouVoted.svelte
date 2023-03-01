@@ -5,7 +5,8 @@
 		<a href="/leaderboard">
 			<span class="text-sky-700 hover:text-sky-900">leaderboard</span>
 		</a>
-		or see your
-		<a href="/history"> <span class="text-sky-700 hover:text-sky-900">vote history</span></a>
+		or edit
+		<a href="/history"><span class="text-sky-700 hover:text-sky-900"> your past votes </span></a> (if
+		you dare).
 	</h2>
 </div>

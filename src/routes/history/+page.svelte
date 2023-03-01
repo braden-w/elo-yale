@@ -7,6 +7,7 @@
 	import toast from 'svelte-french-toast';
 	import { page } from '$app/stores';
 	import { trpc } from '$lib/trpc/client';
+	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
 
 	export let data: PageData;
 	let animate = true;
@@ -39,7 +40,7 @@
 			res,
 			{
 				loading: 'Submitting vote...',
-				success: 'Vote submitted!',
+				success: getRandomSarcasticComment(),
 				error: 'Failed to submit vote'
 			},
 			{ position: 'top-right' }
@@ -50,7 +51,7 @@
 
 <!-- {JSON.stringify(voteHistory)} -->
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
-	<h1 class="text-3xl tracking-wide text-slate-700">My Votes</h1>
+	<h1 class="text-3xl tracking-wide text-slate-700">My Past Votes</h1>
 	{#if voteHistory.length === 0}
 		<p class="text-center text-slate-500">You haven't voted on any matchups yet!</p>
 		<p class="text-center text-slate-500">
@@ -72,7 +73,11 @@
 			</div>
 
 			<div class="flex h-full w-full gap-4">
-				<div class="h-full w-full rounded-2xl ring-stone-400" class:ring-8={collegeOne === winner}>
+				<div
+					class="h-full w-full rounded-2xl ring-stone-400"
+					class:ring-8={collegeOne === winner}
+					class:opacity-70={collegeOne === loser}
+				>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeOne]} alt="Picture of {collegeOne}" />
 						<button
@@ -86,7 +91,11 @@
 					</div>
 				</div>
 				<VerticalDivider />
-				<div class="h-full w-full rounded-2xl ring-stone-400" class:ring-8={collegeTwo === winner}>
+				<div
+					class="h-full w-full rounded-2xl ring-stone-400"
+					class:ring-8={collegeTwo === winner}
+					class:opacity-70={collegeTwo === loser}
+				>
 					<div class="relative overflow-hidden rounded-2xl">
 						<img src={collegeToImage[collegeTwo]} alt="Picture of {collegeTwo}" />
 						<button

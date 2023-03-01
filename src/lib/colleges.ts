@@ -18,7 +18,7 @@ export const collegeToImage = {
 
 export type College = keyof typeof collegeToImage;
 
-export const colleges = [
+export const COLLEGES = [
 	'Benjamin Franklin',
 	'Berkeley',
 	'Branford',
@@ -39,6 +39,8 @@ export type CollegePair = [College, College];
 export type CollegePairs = CollegePair[];
 
 // Generate all unique pairs of colleges
-export const allCollegePairs = colleges.flatMap((college, i) => {
-	return colleges.slice(i + 1).map((otherCollege) => [college, otherCollege]);
+export const ALL_COLLEGE_PAIRS = COLLEGES.flatMap((college, i) => {
+	return COLLEGES.slice(i + 1).map((otherCollege) => [college, otherCollege]);
 }) as CollegePairs;
+
+export const TOTAL_NUMBER_PAIRS = ALL_COLLEGE_PAIRS.length;

@@ -5,25 +5,25 @@ export interface Database {
 		Tables: {
 			votes: {
 				Row: {
-					id: string;
 					created_at: string | null;
-					winner: string;
+					id: string;
 					loser: string;
 					user_id: string | null;
+					winner: string;
 				};
 				Insert: {
-					id: string;
 					created_at?: string | null;
-					winner: string;
+					id: string;
 					loser: string;
 					user_id?: string | null;
+					winner: string;
 				};
 				Update: {
-					id?: string;
 					created_at?: string | null;
-					winner?: string;
+					id?: string;
 					loser?: string;
 					user_id?: string | null;
+					winner?: string;
 				};
 			};
 		};
@@ -31,9 +31,10 @@ export interface Database {
 			leaderboard: {
 				Row: {
 					college: string | null;
-					wins: number | null;
 					losses: number | null;
+					total: number | null;
 					win_rate: number | null;
+					wins: number | null;
 				};
 			};
 		};
@@ -41,6 +42,9 @@ export interface Database {
 			[_ in never]: never;
 		};
 		Enums: {
+			[_ in never]: never;
+		};
+		CompositeTypes: {
 			[_ in never]: never;
 		};
 	};
