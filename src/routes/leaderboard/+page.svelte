@@ -27,11 +27,13 @@
 							</span>
 						</div>
 						<div class="flex min-w-0 flex-1 items-stretch justify-between space-x-4 p-4">
-							<a href="/college/{college}" class="text-slate-900">
-								{college}
+							<a href="/college/{college}">
+								<p class="text-xl text-slate-900">
+									{college}
+								</p>
 							</a>
 							<div class="text-right">
-								<p class="text-slate-900">
+								<p class="text-xl text-slate-900">
 									{win_rate.toFixed(0)}%
 								</p>
 								<p class="text-xs text-slate-600">{wins} wins, {losses} losses</p>
