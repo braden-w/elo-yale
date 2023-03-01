@@ -1,34 +1,41 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-# Define the path to the folder containing the pictures
-folder_path = "/Users/braden/Code/elo-yale/static/Colleges/"
+# Define the font and size
+font = ImageFont.truetype('/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf', size=40)
 
-# Define the Baskerville font and size
-font_path = "/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf"
-font_size = 48
+# Set the desired output width and height for the rectangular image
+output_width = 500
+output_height = 700
 
-# Loop through each file in the folder
-for file_name in os.listdir(folder_path):
+# Iterate through all files in the input folder
+input_folder = '/Users/braden/Code/elo-yale/static/Colleges'
+for filename in os.listdir(input_folder):
+    if filename.endswith('.jpg') or filename.endswith('.png'):
+        # Load the square image
+        input_path = os.path.join(input_folder, filename)
+        square_image = Image.open(input_path)
 
-    # Load the image file
-    image = Image.open(os.path.join(folder_path, file_name))
+        # Calculate the center coordinates of the square image
+        square_center_x = square_image.width // 2
+        square_center_y = square_image.height // 2
 
-    # Define the font
-    font = ImageFont.truetype(font_path, font_size)
+        # Create a new blank rectangular image with the desired output size and fill color
+        output_image = Image.new('RGB', (output_width, output_height), (255, 255, 255))
 
-    # Create a draw object
-    draw = ImageDraw.Draw(image)
+        # Paste the square image onto the center of the rectangular image
+        output_image.paste(square_image, (output_width//2 - square_center_x, output_height//2 - square_center_y))
 
-    # Get the size of the text
-    text_width, text_height = draw.textsize(file_name[:-4], font=font)
+        # Draw the top and bottom text on the rectangular image using the Habibi font
+        draw = ImageDraw.Draw(output_image)
+        top_text = 'Top Text'
+        bottom_text = 'Bottom Text'
+        top_text_width, top_text_height = draw.textsize(top_text, font)
+        bottom_text_width, bottom_text_height = draw.textsize(bottom_text, font)
+        draw.text(((output_width - top_text_width) / 2, 20), top_text, font=font, fill=(0, 0, 0))
+        draw.text(((output_width - bottom_text_width) / 2, output_height - bottom_text_height - 20), bottom_text, font=font, fill=(0, 0, 0))
 
-    # Calculate the position of the text
-    text_x = (image.width - text_width) // 2
-    text_y = 10
-
-    # Draw the text
-    draw.text((text_x, text_y), file_name[:-4], font=font, fill=(0, 0, 0))
-
-    # Save the modified image with a new name
-    image.save(os.path.join(folder_path, file_name[:-4] + "_card.png"))
+        # Save the output image with a new filename in the same directory as the input image
+        output_filename = os.path.splitext(filename)[0] + '_rectangular.jpg'
+        output_path = os.path.join(input_folder, output_filename)
+        output_image.save(output_path)
