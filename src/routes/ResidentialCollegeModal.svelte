@@ -51,6 +51,7 @@
 						bind:value={college}
 					>
 						{#each COLLEGES as college (college)}
+							<option value="" disabled selected hidden>Please Select...</option>
 							<option>{college}</option>
 						{/each}
 					</select>
