@@ -1,4 +1,4 @@
-import { allCollegePairs, COLLEGES } from '$lib/colleges';
+import { ALL_COLLEGE_PAIRS, COLLEGES } from '$lib/colleges';
 import { supabase } from '$lib/supabaseClient';
 import type { Context } from '$lib/trpc/context';
 import { initTRPC } from '@trpc/server';
@@ -34,7 +34,7 @@ export const router = t.router({
 			throw new Error(error.message);
 		}
 		// Return remainingCollegePairs from allCollegePairs that the user has not voted on
-		const remainingCollegePairs = allCollegePairs.filter(([collegeOne, collegeTwo]) => {
+		const remainingCollegePairs = ALL_COLLEGE_PAIRS.filter(([collegeOne, collegeTwo]) => {
 			return !userVotes.some((vote) => {
 				return (
 					(vote.winner === collegeOne && vote.loser === collegeTwo) ||
@@ -52,7 +52,7 @@ export const router = t.router({
 			throw new Error(error.message);
 		}
 		// Return remainingCollegePairs from allCollegePairs that the user has not voted on
-		const remainingCollegePairs = allCollegePairs.filter(([collegeOne, collegeTwo]) => {
+		const remainingCollegePairs = ALL_COLLEGE_PAIRS.filter(([collegeOne, collegeTwo]) => {
 			return !userVotes.some((vote) => {
 				return (
 					(vote.winner === collegeOne && vote.loser === collegeTwo) ||

@@ -4,17 +4,22 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import HorizontalDivider from '$lib/components/HorizontalDivider.svelte';
 	import VerticalDivider from '$lib/components/VerticalDivider.svelte';
-	import { allCollegePairs, collegeToImage, type College, type CollegePairs } from '$lib/colleges';
+	import {
+		ALL_COLLEGE_PAIRS,
+		collegeToImage,
+		TOTAL_NUMBER_PAIRS,
+		type College,
+		type CollegePairs
+	} from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 
 	export let remainingCollegePairs: CollegePairs;
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
-	const totalNumberPairs = allCollegePairs.length;
 
 	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
-	$: progress = (numberVotedSoFar / totalNumberPairs) * 100;
+	$: progress = (numberVotedSoFar / TOTAL_NUMBER_PAIRS) * 100;
 	let animate = true;
 
 	// When the number 1 is pressed, the first college is the winner
@@ -45,7 +50,7 @@
 			},
 			{ position: 'top-right' }
 		);
-		numberVotedSoFar = (numberVotedSoFar + 23) % totalNumberPairs;
+		numberVotedSoFar = (numberVotedSoFar + 23) % TOTAL_NUMBER_PAIRS;
 	}
 </script>
 
@@ -92,7 +97,7 @@
 <div class="flex w-full flex-col items-center">
 	<ProgressBar {progress} />
 	<p class="text-slate-900">
-		{numberVotedSoFar} out of {totalNumberPairs}
+		{numberVotedSoFar} out of {TOTAL_NUMBER_PAIRS}
 	</p>
 	<a href="/history"><span class="text-sm text-sky-700 hover:text-sky-900">See history</span></a>
 </div>
