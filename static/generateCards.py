@@ -1,14 +1,15 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-# set the path of the folder containing square pictures
+# Set the path of the folder containing square pictures
 folder_path = "/Users/braden/Code/elo-yale/static/Colleges"
 
-# set the opacity of the black filter
+# Set the opacity of the black filter
 opacity = 0.5
 
 # Set font and size for the text
-font = ImageFont.truetype("/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf", size=80)
+font_title = ImageFont.truetype("/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf", size=80)
+font_subtitle = ImageFont.truetype("/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf", size=30)
 
 # Iterate through all files in the folder
 for filename in os.listdir(folder_path):
@@ -28,14 +29,20 @@ for filename in os.listdir(folder_path):
         filename_without_png = os.path.splitext(filename)[0]
         line1 = "My Favorite College:"
         line2 = filename_without_png
-        text_width1, text_height1 = draw.textsize(line1, font=font)
-        text_width2, text_height2 = draw.textsize(line2, font=font)
+        line3 = "Vote now at elo.yaleapps.com"
+        text_width1, text_height1 = draw.textsize(line1, font=font_title)
+        text_width2, text_height2 = draw.textsize(line2, font=font_title)
+        text_width3, text_height3 = draw.textsize(line3, font=font_subtitle)
         x1 = (image_copy.width - text_width1) / 2
         x2 = (image_copy.width - text_width2) / 2
-        y = (image_copy.height - text_height1 - text_height2) / 2
-        draw.text((x1, y), line1, font=font, fill=(255, 255, 255, 255))
-        draw.text((x2, y+text_height1), line2, font=font, fill=(255, 255, 255, 255))
+        x3 = (image_copy.width - text_width3) / 2
+        y1 = (image_copy.height - text_height1 - text_height2 - text_height3) / 2
+        y2 = y1 + text_height1
+        y3 = y2 + text_height2
+        draw.text((x1, y1), line1, font=font_title, fill=(255, 255, 255, 255))
+        draw.text((x2, y2), line2, font=font_title, fill=(255, 255, 255, 255))
+        draw.text((x3, y3), line3, font=font_subtitle, fill=(255, 255, 255, 255))
 
         # Save the modified image with a new filename
         new_filename = os.path.splitext(filename)[0] + ".png"
-        image_copy.save(os.path.join(f"{folder_path}/Loved/", new_filename)) 
+        image_copy.save(os.path.join(f"{folder_path}/Loved/", new_filename))
