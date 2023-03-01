@@ -16,7 +16,7 @@
 				<div class="relative pb-8">
 					{#if index !== leaderboard.length - 1}
 						<span
-							class="absolute inset-x-6 top-4 -ml-px h-full w-0.5 bg-slate-300"
+							class="absolute inset-x-16 top-4 -ml-px h-full w-0.5 bg-slate-300"
 							aria-hidden="true"
 						/>
 					{/if}
