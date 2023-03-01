@@ -1,5 +1,11 @@
 CREATE
-OR REPLACE PROCEDURE get_college_stats (IN p_user_id UUID) LANGUAGE SQL AS $$
+OR REPLACE FUNCTION personal_summary (p_user_id UUID) RETURNS TABLE (
+	college TEXT,
+	wins INTEGER,
+	losses INTEGER,
+	total INTEGER,
+	win_rate FLOAT
+) LANGUAGE SQL AS $$
 SELECT
 	COALESCE(w.winner, l.loser) AS college,
 	COALESCE(w.wins, 0) AS wins,
