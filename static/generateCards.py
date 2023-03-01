@@ -8,7 +8,7 @@ folder_path = "/Users/braden/Code/elo-yale/static/Colleges"
 opacity = 0.5
 
 # Set font and size for the text
-font = ImageFont.truetype("/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf", size=40)
+font = ImageFont.truetype("/Users/braden/Code/elo-yale/static/fonts/Habibi-Regular.ttf", size=80)
 
 # Iterate through all files in the folder
 for filename in os.listdir(folder_path):
@@ -37,5 +37,5 @@ for filename in os.listdir(folder_path):
         draw.text((x2, y+text_height1), line2, font=font, fill=(255, 255, 255, 255))
 
         # Save the modified image with a new filename
-        new_filename = os.path.splitext(filename)[0] + "_modified.png"
+        new_filename = os.path.splitext(filename)[0] + "_Loved.png"
         image_copy.save(os.path.join(folder_path, new_filename))
