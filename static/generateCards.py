@@ -26,7 +26,7 @@ for filename in os.listdir(folder_path):
         # Add text in the center of the image
         draw = ImageDraw.Draw(image_copy)
         filename_without_png = os.path.splitext(filename)[0]
-        line1 = "Most Loved College:"
+        line1 = "Most Hated College:"
         line2 = filename_without_png
         text_width1, text_height1 = draw.textsize(line1, font=font)
         text_width2, text_height2 = draw.textsize(line2, font=font)
@@ -37,5 +37,5 @@ for filename in os.listdir(folder_path):
         draw.text((x2, y+text_height1), line2, font=font, fill=(255, 255, 255, 255))
 
         # Save the modified image with a new filename
-        new_filename = os.path.splitext(filename)[0] + "_Loved.png"
-        image_copy.save(os.path.join(folder_path, new_filename))
+        new_filename = os.path.splitext(filename)[0] + ".png"
+        image_copy.save(os.path.join(f"{folder_path}/Loved/", new_filename)) 
