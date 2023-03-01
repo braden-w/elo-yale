@@ -25,13 +25,16 @@ for filename in os.listdir(folder_path):
 
         # Add text in the center of the image
         draw = ImageDraw.Draw(image_copy)
-        # filename without the .png ending
         filename_without_png = os.path.splitext(filename)[0]
-        text = f"Most Loved College:\n{filename_without_png}"
-        text_width, text_height = draw.textsize(text, font=font)
-        x = (image_copy.width - text_width) / 2
-        y = (image_copy.height - text_height) / 2
-        draw.text((x, y), text, font=font, fill=(255, 255, 255, 255))
+        line1 = "Most Loved College:"
+        line2 = filename_without_png
+        text_width1, text_height1 = draw.textsize(line1, font=font)
+        text_width2, text_height2 = draw.textsize(line2, font=font)
+        x1 = (image_copy.width - text_width1) / 2
+        x2 = (image_copy.width - text_width2) / 2
+        y = (image_copy.height - text_height1 - text_height2) / 2
+        draw.text((x1, y), line1, font=font, fill=(255, 255, 255, 255))
+        draw.text((x2, y+text_height1), line2, font=font, fill=(255, 255, 255, 255))
 
         # Save the modified image with a new filename
         new_filename = os.path.splitext(filename)[0] + "_modified.png"
