@@ -4,7 +4,6 @@
 	export let personal_account: Database['public']['Functions']['personal_summary']['Returns'];
 </script>
 
-{JSON.stringify(personal_account)}
 <div class="flex flex-col items-center gap-2">
 	<h1 class="text-3xl tracking-wide text-slate-700 sm:text-3xl">You've voted on all the pairs!</h1>
 	<h2 class="text-center text-xs tracking-wide text-slate-700">
