@@ -5,7 +5,8 @@
 	import type { LayoutData } from '../$types';
 
 	export let data: LayoutData;
-	let { remainingCollegePairs, numberVotedSoFar = 0 } = data;
+	let { remainingCollegePairs, voteHistory } = data;
+	let numberVotedSoFar = voteHistory.length;
 </script>
 
 <!-- {JSON.stringify(remainingCollegePairs)} -->
