@@ -19,5 +19,6 @@ export const load: LayoutLoad = async (event) => {
 
 	const remainingCollegePairs = trpc(event).getRemainingMatchupsScrambled.query(user_id);
 	const voteHistory = trpc(event).getVotes.query(user_id);
-	return { session, remainingCollegePairs, voteHistory };
+	const numberVotedSoFar = trpc(event).getNumberVotedSoFar.query(user_id);
+	return { session, remainingCollegePairs, voteHistory, numberVotedSoFar };
 };
