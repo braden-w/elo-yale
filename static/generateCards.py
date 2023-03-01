@@ -25,7 +25,9 @@ for filename in os.listdir(folder_path):
 
         # Add text in the center of the image
         draw = ImageDraw.Draw(image_copy)
-        text = "Hopper College"
+        # filename without the .png ending
+        filename_without_png = os.path.splitext(filename)[0]
+        text = f"Most Loved College:\n{filename_without_png}"
         text_width, text_height = draw.textsize(text, font=font)
         x = (image_copy.width - text_width) / 2
         y = (image_copy.height - text_height) / 2
