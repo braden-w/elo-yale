@@ -10,6 +10,7 @@
 </script>
 
 <!-- {JSON.stringify(remainingCollegePairs)} -->
+<!-- {remainingCollegePairs.length} -->
 <!-- {numberVotedSoFar} -->
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
 	{#if remainingCollegePairs === null || remainingCollegePairs.length === numberVotedSoFar}
