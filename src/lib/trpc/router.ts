@@ -28,13 +28,6 @@ export const router = t.router({
 		}
 		return data;
 	}),
-	getNumberVotedSoFar: t.procedure.input(z.string()).query(async (req) => {
-		const { data, error } = await supabase.from('votes').select().eq('user_id', req.input);
-		if (error) {
-			throw new Error(error.message);
-		}
-		return data.length ?? 0;
-	}),
 	getRemainingMatchups: t.procedure.input(z.string()).query(async ({ input: user_id }) => {
 		const { data: userVotes, error } = await supabase.from('votes').select().eq('user_id', user_id);
 		if (error) {
