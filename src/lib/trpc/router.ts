@@ -61,7 +61,7 @@ export const router = t.router({
 			});
 		});
 		if (remainingCollegePairs.length === 0) return null;
-		return remainingCollegePairs;
+		return remainingCollegePairs.sort(() => Math.random() - 0.5);
 	}),
 	getLeaderboard: t.procedure.query(async () => {
 		const { data, error } = await supabase.from('leaderboard').select();

@@ -15,11 +15,12 @@
 	import { page } from '$app/stores';
 
 	export let remainingCollegePairs: CollegePairs;
+	let pairsVotedThisSession = new Set<CollegePair>();
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
 
-	$: [collegeOne, collegeTwo] = remainingCollegePairs[numberVotedSoFar];
-	$: progress = (numberVotedSoFar / TOTAL_NUMBER_PAIRS) * 100;
+	let [collegeOne, collegeTwo] = remainingCollegePairs[0];
+	$: progress = (numberVotedSoFar / totalNumberPairs) * 100;
 	let animate = true;
 
 	// When the number 1 is pressed, the first college is the winner
@@ -50,7 +51,7 @@
 			},
 			{ position: 'top-right' }
 		);
-		numberVotedSoFar = (numberVotedSoFar + 23) % TOTAL_NUMBER_PAIRS;
+		numberVotedSoFar++;
 	}
 </script>
 
