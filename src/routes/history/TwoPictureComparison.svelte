@@ -8,6 +8,7 @@
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
+	import { voteToast } from '$lib/voteToast';
 
 	// Number from 0 to 91 (collegePairs.length - 1)
 	export let remainingCollegePairs: CollegePairs;
@@ -36,15 +37,7 @@
 			loser,
 			user_id: user_id ?? null
 		});
-		toast.promise(
-			res,
-			{
-				loading: 'Submitting vote...',
-				success: getRandomSarcasticComment(),
-				error: 'Failed to submit vote'
-			},
-			{ position: 'top-right' }
-		);
+		voteToast({ res, winner, loser });
 		pairNumber++;
 	}
 </script>

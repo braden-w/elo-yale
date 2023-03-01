@@ -1,3 +1,5 @@
+import type { College } from './colleges';
+
 const SARCASTIC_COMMENTS = [
 	'Have you EATEN at their dining hall?',
 	'Stop playing favorites',
@@ -41,6 +43,12 @@ const SARCASTIC_COMMENTS = [
 	'Interesting choice. Are you a fan of mediocre wifi and lukewarm showers?'
 ] as const;
 
-export function getRandomSarcasticComment(): string {
+export function getRandomSarcasticComment({
+	winner,
+	loser
+}: {
+	winner: College;
+	loser: College;
+}): string {
 	return SARCASTIC_COMMENTS[Math.floor(Math.random() * SARCASTIC_COMMENTS.length)];
 }
