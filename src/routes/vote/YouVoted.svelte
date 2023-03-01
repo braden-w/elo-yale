@@ -16,4 +16,5 @@
 		<a href="/history"><span class="text-sky-700 hover:text-sky-900"> your past votes </span></a> (if
 		you dare).
 	</h2>
+	<img src={`/Colleges/Loved/${favoriteCollege}.png`} alt="You voted!" class="w-1/2" />
 </div>
