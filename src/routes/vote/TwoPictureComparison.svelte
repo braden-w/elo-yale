@@ -47,7 +47,7 @@
 			loser,
 			user_id: user_id ?? null
 		});
-		voteToast(res);
+		voteToast({ res, winner, loser });
 		// Remove the pair from the list of remaining pairs
 		remainingCollegePairs.splice(currentCollegePairIndex, 1);
 		currentCollegePairIndex = pickRandomCollegePairIndex();
@@ -58,8 +58,7 @@
 <svelte:window on:keydown={onKeyDown} />
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
 	<div class="h-full w-full">
-		<div class="relative overflow-hidden rounded-2xl">
-			<img
+		<div class="relative overflow-hi{res: {res, winner, loser}}<img
 				src={`/Colleges/${collegeOne}.png`}
 				alt="Picture of {collegeOne}"
 				class="rounded-2xl object-cover"

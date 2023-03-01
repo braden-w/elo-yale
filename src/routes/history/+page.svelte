@@ -37,7 +37,7 @@
 			loser,
 			user_id: user_id ?? null
 		});
-		voteToast(res);
+		voteToast({res, winner, loser});
 		modifyVoteHistory(id, winner, loser);
 	}
 </script>
@@ -50,7 +50,7 @@
 		<p class="text-center text-slate-500">
 			Go to the <a href="/vote" class="text-slate-600 underline">vote page</a> to vote on matchups.
 		</p>
-	{/if}
+	{/if}{res: {res, winner, loser}}
 	{#each voteHistory as { winner, loser }}
 		{@const [collegeOne, collegeTwo] = sortColleges(winner, loser)}
 		<section class="flex flex-col items-center gap-6">

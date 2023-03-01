@@ -8,7 +8,7 @@
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
-	import {voteToast} from '$lib/voteToast';
+	import { voteToast } from '$lib/voteToast';
 
 	// Number from 0 to 91 (collegePairs.length - 1)
 	export let remainingCollegePairs: CollegePairs;
@@ -37,7 +37,7 @@
 			loser,
 			user_id: user_id ?? null
 		});
-		voteToast(res);
+		voteToast({ res, winner, loser });
 		pairNumber++;
 	}
 </script>
@@ -46,7 +46,7 @@
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
 	<div class="h-full w-full rounded-2xl">
 		<div class="relative overflow-hidden rounded-2xl">
-			<img src={collegeToImage[collegeOne]} alt="Picture of {collegeOne}" />
+			<img src={collegeToIma{res: {res, winner, loser}}icture of {collegeOne}" />
 			<button
 				class="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-40 text-center text-white transition hover:bg-opacity-50 hover:opacity-90 {animate
 					? 'duration-150 ease-in-out hover:-translate-y-1 hover:scale-105'
