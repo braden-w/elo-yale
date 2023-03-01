@@ -38,7 +38,7 @@ for filename in os.listdir(folder_path):
         x3 = (image_copy.width - text_width3) / 2
         y1 = (image_copy.height - text_height1 - text_height2 - text_height3) / 2
         y2 = y1 + text_height1
-        y3 = y2 + text_height2
+        y3 = y2 + text_height2 + 15
         draw.text((x1, y1), line1, font=font_title, fill=(255, 255, 255, 255))
         draw.text((x2, y2), line2, font=font_title, fill=(255, 255, 255, 255))
         draw.text((x3, y3), line3, font=font_subtitle, fill=(255, 255, 255, 255))
