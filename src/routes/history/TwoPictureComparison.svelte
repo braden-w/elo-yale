@@ -7,6 +7,7 @@
 	import { collegeToImage, type College, type CollegePairs } from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
+	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
 
 	// Number from 0 to 91 (collegePairs.length - 1)
 	export let remainingCollegePairs: CollegePairs;
@@ -39,7 +40,7 @@
 			res,
 			{
 				loading: 'Submitting vote...',
-				success: 'Vote submitted!',
+				success: getRandomSarcasticComment(),
 				error: 'Failed to submit vote'
 			},
 			{ position: 'top-right' }

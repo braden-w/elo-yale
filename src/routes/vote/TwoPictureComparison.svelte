@@ -13,6 +13,7 @@
 	} from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
+	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
 
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
@@ -49,7 +50,7 @@
 			res,
 			{
 				loading: 'Submitting vote...',
-				success: 'Vote submitted!',
+				success: getRandomSarcasticComment(),
 				error: 'Failed to submit vote'
 			},
 			{ position: 'top-right' }

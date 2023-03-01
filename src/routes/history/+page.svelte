@@ -7,6 +7,7 @@
 	import toast from 'svelte-french-toast';
 	import { page } from '$app/stores';
 	import { trpc } from '$lib/trpc/client';
+	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
 
 	export let data: PageData;
 	let animate = true;
@@ -39,7 +40,7 @@
 			res,
 			{
 				loading: 'Submitting vote...',
-				success: 'Vote submitted!',
+				success: getRandomSarcasticComment(),
 				error: 'Failed to submit vote'
 			},
 			{ position: 'top-right' }
