@@ -17,14 +17,11 @@
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
 	export let remainingCollegePairs: CollegePairs;
-	let currentCollegePair = remainingCollegePairs[0];
+	let currentCollegePairIndex = 0;
 
-	function pickRandomCollegePair() {
-		const randomIndex = Math.floor(Math.random() * remainingCollegePairs.length);
-		const randomCollegePair = remainingCollegePairs[randomIndex];
-		return randomCollegePair;
-	}
+	const pickRandomCollegePairIndex = () => Math.floor(Math.random() * remainingCollegePairs.length);
 
+	$: currentCollegePair = remainingCollegePairs[currentCollegePairIndex];
 	$: [collegeOne, collegeTwo] = currentCollegePair;
 	$: progress = (numberVotedSoFar / TOTAL_NUMBER_PAIRS) * 100;
 	let animate = true;
@@ -58,10 +55,8 @@
 			{ position: 'top-right' }
 		);
 		// Remove the pair from the list of remaining pairs
-		remainingCollegePairs = remainingCollegePairs.filter(
-			([c1, c2]) => c1 !== collegeOne || c2 !== collegeTwo
-		);
-		currentCollegePair = pickRandomCollegePair();
+		remainingCollegePairs.splice(currentCollegePairIndex, 1);
+		currentCollegePairIndex = pickRandomCollegePairIndex();
 		numberVotedSoFar++;
 	}
 </script>
@@ -71,7 +66,7 @@
 	<div class="h-full w-full">
 		<div class="relative overflow-hidden rounded-2xl">
 			<img
-				src={collegeToImage[collegeOne]}
+				src={`/Colleges/${collegeOne}.png`}
 				alt="Picture of {collegeOne}"
 				class="rounded-2xl object-cover"
 			/>
@@ -90,7 +85,7 @@
 	<div class="h-full w-full">
 		<div class="relative overflow-hidden rounded-2xl">
 			<img
-				src={collegeToImage[collegeTwo]}
+				src={`/Colleges/${collegeTwo}.png`}
 				alt="Picture of {collegeTwo}"
 				class="rounded-2xl object-cover"
 			/>
