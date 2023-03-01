@@ -1,12 +1,11 @@
 <script lang="ts">
 	import YouVoted from './YouVoted.svelte';
 	import TwoPictureComparison from './TwoPictureComparison.svelte';
-	import type { PageData } from './$types';
 	import KeyboardShortcutAlert from './KeyboardShortcutAlert.svelte';
+	import type { LayoutData } from '../$types';
 
-	export let data: PageData;
-	let { remainingCollegePairs, voteHistory } = data;
-	let numberVotedSoFar = voteHistory.length;
+	export let data: LayoutData;
+	let { remainingCollegePairs, numberVotedSoFar = 0 } = data;
 </script>
 
 <!-- {JSON.stringify(remainingCollegePairs)} -->

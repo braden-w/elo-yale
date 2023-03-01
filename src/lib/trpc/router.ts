@@ -1,4 +1,4 @@
-import { allCollegePairs, colleges } from '$lib/colleges';
+import { allCollegePairs, COLLEGES } from '$lib/colleges';
 import { supabase } from '$lib/supabaseClient';
 import type { Context } from '$lib/trpc/context';
 import { initTRPC } from '@trpc/server';
@@ -8,8 +8,8 @@ export const t = initTRPC.context<Context>().create();
 
 const row = z.object({
 	id: z.string(),
-	winner: z.enum(colleges),
-	loser: z.enum(colleges),
+	winner: z.enum(COLLEGES),
+	loser: z.enum(COLLEGES),
 	user_id: z.string().nullable()
 });
 
