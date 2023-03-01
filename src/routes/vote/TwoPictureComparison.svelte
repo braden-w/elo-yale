@@ -45,7 +45,7 @@
 			},
 			{ position: 'top-right' }
 		);
-		numberVotedSoFar++;
+		numberVotedSoFar = (numberVotedSoFar + 23) % totalNumberPairs;
 	}
 </script>
 
