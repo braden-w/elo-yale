@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ResidentialCollegeModal from './ResidentialCollegeModal.svelte';
+	import ResidentialCollegeModal from './ResidentialCollegeModal.svelte';
 
 	import { Toaster } from 'svelte-french-toast';
 
@@ -21,7 +21,7 @@
 	});
 </script>
 
-<div class="flex min-h-screen w-full flex-col items-center bg-slate-200">
+<div class="flex min-h-screen w-full flex-col items-center bg-slate-500 bg-opacity-30">
 	<Toaster />
 	<div class="align-center flex w-full justify-center bg-slate-800">
 		<a href="/"><h1 class="text-2xl tracking-widest text-slate-100">Elo Yale</h1></a>
@@ -29,4 +29,4 @@
 	<slot />
 </div>
 
-<ResidentialCollegeModal></ResidentialCollegeModal>
+<ResidentialCollegeModal />
