@@ -3,6 +3,7 @@
 	import TwoPictureComparison from './TwoPictureComparison.svelte';
 	import KeyboardShortcutAlert from './KeyboardShortcutAlert.svelte';
 	import type { LayoutData } from '../$types';
+	import { ALL_COLLEGE_PAIRS } from '$lib/colleges';
 
 	export let data: LayoutData;
 	let { remainingCollegePairs, voteHistory } = data;
@@ -13,7 +14,7 @@
 <!-- {remainingCollegePairs.length} -->
 <!-- {numberVotedSoFar} -->
 <div class="mx-auto flex h-full flex-col items-center gap-6 p-6 sm:max-w-4xl">
-	{#if remainingCollegePairs === null || remainingCollegePairs.length === numberVotedSoFar}
+	{#if remainingCollegePairs === null || numberVotedSoFar === ALL_COLLEGE_PAIRS.length}
 		<YouVoted />
 	{:else}
 		<div class="flex flex-col items-center gap-2">

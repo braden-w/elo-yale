@@ -16,7 +16,7 @@
 				<div class="relative pb-8">
 					{#if index !== leaderboard.length - 1}
 						<span
-							class="absolute inset-x-6 top-4 -ml-px h-full w-0.5 bg-slate-300"
+							class="absolute inset-x-16 top-4 -ml-px h-full w-0.5 bg-slate-300"
 							aria-hidden="true"
 						/>
 					{/if}
@@ -27,11 +27,13 @@
 							</span>
 						</div>
 						<div class="flex min-w-0 flex-1 items-stretch justify-between space-x-4 p-4">
-							<a href="/college/{college}" class="text-slate-900">
-								{college}
+							<a href="/college/{college}">
+								<p class="text-xl text-slate-900">
+									{college}
+								</p>
 							</a>
 							<div class="text-right">
-								<p class="text-slate-900">
+								<p class="text-xl text-slate-900">
 									{win_rate.toFixed(0)}%
 								</p>
 								<p class="text-xs text-slate-600">{wins} wins, {losses} losses</p>
