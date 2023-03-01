@@ -43,7 +43,13 @@ export interface Database {
 				Args: {
 					p_user_id: string;
 				};
-				Returns: Record<string, unknown>;
+				Returns: {
+					college: string;
+					wins: number;
+					losses: number;
+					total: number;
+					win_rate: number;
+				}[];
 			};
 		};
 		Enums: {
