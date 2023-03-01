@@ -2,6 +2,7 @@
 	import type { Database } from '$lib/types/DatabaseDefinitions';
 
 	export let personal_account: Database['public']['Functions']['personal_summary']['Returns'];
+	const favoriteCollege = personal_account[0].college;
 </script>
 
 <div class="flex flex-col items-center gap-2">
