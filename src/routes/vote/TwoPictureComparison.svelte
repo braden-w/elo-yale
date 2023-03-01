@@ -58,7 +58,8 @@
 <svelte:window on:keydown={onKeyDown} />
 <div class="flex h-full w-full flex-col gap-4 sm:flex-row">
 	<div class="h-full w-full">
-		<div class="relative overflow-hi{res: {res, winner, loser}}<img
+		<div class="relative overflow-hidden rounded-2xl">
+			<img
 				src={`/Colleges/${collegeOne}.png`}
 				alt="Picture of {collegeOne}"
 				class="rounded-2xl object-cover"
