@@ -5,10 +5,10 @@
 	import HorizontalDivider from '$lib/components/HorizontalDivider.svelte';
 	import VerticalDivider from '$lib/components/VerticalDivider.svelte';
 	import {
+		ALL_COLLEGE_PAIRS,
 		collegeToImage,
 		TOTAL_NUMBER_PAIRS,
 		type College,
-		type CollegePair,
 		type CollegePairs
 	} from '$lib/colleges';
 	import { trpc } from '$lib/trpc/client';
@@ -17,22 +17,13 @@
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
 	export let remainingCollegePairs: CollegePairs;
+	let currentCollegePair = remainingCollegePairs[0];
 
-	let pairsVotedThisSession = new Set<CollegePair>();
-	let currentCollegePair: CollegePair;
-
-	function getUnvotedCollegePair() {
-		// Get a random college pair from remainingCollegePairs that isn't in pairsVotedThisSession
-		let collegePair: CollegePair;
-		do {
-			const randomIndex = Math.floor(Math.random() * remainingCollegePairs.length);
-			collegePair = remainingCollegePairs[randomIndex];
-		} while (pairsVotedThisSession.has(collegePair));
-		return collegePair;
+	function pickRandomCollegePair() {
+		const randomIndex = Math.floor(Math.random() * remainingCollegePairs.length);
+		const randomCollegePair = remainingCollegePairs[randomIndex];
+		return randomCollegePair;
 	}
-
-	currentCollegePair = getUnvotedCollegePair();
-	pairsVotedThisSession.add(currentCollegePair);
 
 	$: [collegeOne, collegeTwo] = currentCollegePair;
 	$: progress = (numberVotedSoFar / TOTAL_NUMBER_PAIRS) * 100;
@@ -66,8 +57,11 @@
 			},
 			{ position: 'top-right' }
 		);
-		currentCollegePair = getUnvotedCollegePair();
-		pairsVotedThisSession.add(currentCollegePair);
+		// Remove the pair from the list of remaining pairs
+		remainingCollegePairs = remainingCollegePairs.filter(
+			([c1, c2]) => c1 !== collegeOne || c2 !== collegeTwo
+		);
+		currentCollegePair = pickRandomCollegePair();
 		numberVotedSoFar++;
 	}
 </script>
