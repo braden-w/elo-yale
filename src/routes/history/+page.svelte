@@ -8,6 +8,7 @@
 	import { page } from '$app/stores';
 	import { trpc } from '$lib/trpc/client';
 	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
+	import { voteToast } from '$lib/voteToast';
 
 	export let data: PageData;
 	let animate = true;
@@ -36,15 +37,7 @@
 			loser,
 			user_id: user_id ?? null
 		});
-		toast.promise(
-			res,
-			{
-				loading: 'Submitting vote...',
-				success: getRandomSarcasticComment(),
-				error: 'Failed to submit vote'
-			},
-			{ position: 'top-right' }
-		);
+		voteToast(res);
 		modifyVoteHistory(id, winner, loser);
 	}
 </script>

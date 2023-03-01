@@ -14,6 +14,7 @@
 	import { trpc } from '$lib/trpc/client';
 	import { page } from '$app/stores';
 	import { getRandomSarcasticComment } from '$lib/sarcasticComment';
+	import { voteToast } from '$lib/voteToast';
 
 	// How many someone has voted on, as a number from 0 to 91 (Can have not voted, or on all 90 pairs)
 	export let numberVotedSoFar: number;
@@ -46,15 +47,7 @@
 			loser,
 			user_id: user_id ?? null
 		});
-		toast.promise(
-			res,
-			{
-				loading: 'Submitting vote...',
-				success: getRandomSarcasticComment(),
-				error: 'Failed to submit vote'
-			},
-			{ position: 'top-right' }
-		);
+		voteToast(res);
 		// Remove the pair from the list of remaining pairs
 		remainingCollegePairs.splice(currentCollegePairIndex, 1);
 		currentCollegePairIndex = pickRandomCollegePairIndex();
